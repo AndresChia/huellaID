@@ -1,5 +1,8 @@
 import type { Config } from "tailwindcss";
-import { colors } from "./src/styles/theme";
+const {
+  theme: { colors },
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+} = require("./src/styles/theme");
 
 export default {
   content: [
@@ -10,6 +13,9 @@ export default {
   theme: {
     extend: {
       colors: colors,
+      fontFamily: {
+        sans: ["Geist", "sans-serif"],
+      },
     },
   },
   plugins: [],

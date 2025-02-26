@@ -4,11 +4,7 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import MedicalContent from "./MedicalContent";
 
-interface MedicalHistoryProps {
-  petId: string;
-}
-
-export default function MedicalHistory({ petId }: MedicalHistoryProps) {
+export default function MedicalHistory() {
   const t = useTranslations();
   const [activeTab, setActiveTab] = useState("medical");
 
@@ -39,7 +35,7 @@ export default function MedicalHistory({ petId }: MedicalHistoryProps) {
         </nav>
       </div>
       <div className="mt-6">
-        {activeTab === "medical" && <MedicalContent petId={petId} />}
+        {activeTab === "medical" && <MedicalContent />}
         {activeTab === "photos" && <div>Photos Content</div>}
       </div>
     </div>

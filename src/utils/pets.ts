@@ -10,7 +10,7 @@ interface PetData {
   address: string;
 }
 
-async function getPetData(id: string): Promise<PetData> {
+export const getPetData = (id: string) => {
   return {
     id,
     name: "Luna",
@@ -24,7 +24,6 @@ async function getPetData(id: string): Promise<PetData> {
     phone: "+34 912 345 678",
     address: "Calle Principal 123, Madrid",
   };
-}
+};
 
 export type { PetData };
-export { getPetData };

@@ -1,16 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import PetHeader from "@/components/pet/PetHeader";
 import PetInfo from "@/components/pet/PetInfo";
 import ActionButtons from "@/components/pet/ActionButtons";
 import MedicalHistory from "@/components/pet/MedicalHistory";
 import { getPetData } from "@/utils/pets";
 
-interface PageProps {
-  params: { id: string };
-}
+export default function PetPage({ params }: any) {
+  const { id } = params;
 
-export default async function PetPage({ params }: PageProps) {
-  const { id } = await params;
-  const pet = await getPetData(id);
+  const pet = getPetData(id);
 
   return (
     <main className="container mx-auto px-4 py-6">
@@ -22,7 +20,7 @@ export default async function PetPage({ params }: PageProps) {
             <ActionButtons />
           </div>
           <div className="lg:col-span-2">
-            <MedicalHistory petId={pet.id} />
+            <MedicalHistory />
           </div>
         </div>
       </div>
