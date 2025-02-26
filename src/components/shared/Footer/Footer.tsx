@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function Footer() {
@@ -9,15 +10,15 @@ export default function Footer() {
             © 2024 VetCare. Todos los derechos reservados.
           </p>
           <div className="flex gap-4">
-            <a href="/terms" className="text-gray-600 hover:text-gray-900">
+            <Link href="/terms" className="text-gray-600 hover:text-gray-900">
               Términos
-            </a>
-            <a href="/privacy" className="text-gray-600 hover:text-gray-900">
+            </Link>
+            <Link href="/privacy" className="text-gray-600 hover:text-gray-900">
               Privacidad
-            </a>
-            <a href="/contact" className="text-gray-600 hover:text-gray-900">
+            </Link>
+            <Link href="/contact" className="text-gray-600 hover:text-gray-900">
               Contacto
-            </a>
+            </Link>
           </div>
         </div>
       </div>

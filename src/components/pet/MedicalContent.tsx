@@ -1,11 +1,7 @@
 "use client";
 import { useTranslations } from "next-intl";
 
-interface MedicalContentProps {
-  petId: string;
-}
-
-export default function MedicalContent({ petId }: MedicalContentProps) {
+export default function MedicalContent() {
   const t = useTranslations();
 
   return (
