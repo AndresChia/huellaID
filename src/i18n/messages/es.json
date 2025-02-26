@@ -1,0 +1,39 @@
+{
+  "common": {
+    "home": "Inicio",
+    "age": "Edad",
+    "years": "años",
+    "owner": "Dueño",
+    "phone": "Celular",
+    "address": "Dirección",
+    "scanResults": "Resultados del Escaneo",
+    "petDetails": "Detalles de la Mascota"
+  },
+  "actions": {
+    "call": "Llamar",
+    "sendMessage": "Enviar Mensaje",
+    "reportFound": "Reportar Encontrado",
+    "downloadRecords": "Descargar Registros",
+    "addNewEntry": "Agregar Entrada",
+    "viewMap": "Ver en Mapa"
+  },
+  "medical": {
+    "history": "Historial Médico",
+    "photos": "Fotos",
+    "recentCheckups": "Chequeos Recientes",
+    "vaccinations": "Vacunas",
+    "currentMedications": "Medicamentos Actuales",
+    "allergies": "Alergias y Condiciones",
+    "veterinaryContact": "Contacto Veterinario",
+    "validUntil": "Válido hasta",
+    "callClinic": "Llamar Clínica",
+    "lastDose": "Última dosis",
+    "onceMonthly": "Una vez al mes",
+    "avoid": "Evitar"
+  },
+  "navigation": {
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "logo": "HuellaID"
+  }
+}
