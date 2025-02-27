@@ -5,8 +5,8 @@ import ActionButtons from "@/components/pet/ActionButtons";
 import MedicalHistory from "@/components/pet/MedicalHistory";
 import { getPetData } from "@/utils/pets";
 
-export default function PetPage({ params }: any) {
-  const { id } = params;
+export default async function PetPage({ params }: any) {
+  const { id } = await params;
 
   const pet = getPetData(id);
 

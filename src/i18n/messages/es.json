@@ -29,11 +29,27 @@
     "callClinic": "Llamar Clínica",
     "lastDose": "Última dosis",
     "onceMonthly": "Una vez al mes",
-    "avoid": "Evitar"
+    "avoid": "Evitar",
+    "foodSensitivity": "Sensibilidad Alimentaria",
+    "avoidChicken": "Evitar productos con pollo",
+    "heartwormPrevention": "Prevención de Gusano del Corazón"
   },
   "navigation": {
-    "about": "Nosotros",
+    "about": "Sobre Nosotros",
     "contact": "Contacto",
-    "logo": "HuellaID"
+    "logo": "HuellaID",
+    "services": "Servicios"
+  },
+  "footer": {
+    "title": "HuellaID",
+    "rights": "© 2025 HuellaID. Todos los derechos reservados.",
+    "terms": "Términos y Condiciones",
+    "privacy": "Política de Privacidad",
+    "contact": "Contacto",
+    "description": "Conectando mascotas y familias a través de tecnología innovadora y cuidado responsable.",
+    "quickLinks": "Enlaces Rápidos",
+    "legal": "Legal",
+    "about": "Sobre Nosotros",
+    "services": "Servicios"
   }
 }

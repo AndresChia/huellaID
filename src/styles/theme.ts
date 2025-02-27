@@ -5,6 +5,11 @@ export const theme = {
       light: "#EFEDFF",
       dark: "#4A35CC",
     },
+    secondary: {
+      DEFAULT: "#FF6B5B",
+      light: "#FF8D82",
+      dark: "#E54B3B",
+    },
     dark: {
       DEFAULT: "#242424",
       light: "#363636",
@@ -25,7 +30,11 @@ export const theme = {
       DEFAULT: "#FFA726",
       light: "#FFB74D",
       dark: "#EF6C00",
-      info: "#29B6F6",
+    },
+    info: {
+      DEFAULT: "#29B6F6",
+      light: "#81D4FA",
+      dark: "#0288D1",
     },
     alert: {
       DEFAULT: "#EF5350",
