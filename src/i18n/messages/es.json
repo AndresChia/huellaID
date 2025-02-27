@@ -7,7 +7,9 @@
     "phone": "Celular",
     "address": "Dirección",
     "scanResults": "Resultados del Escaneo",
-    "petDetails": "Detalles de la Mascota"
+    "petDetails": "Detalles de la Mascota",
+    "email": "Correo electrónico",
+    "message": "Tu mensaje"
   },
   "actions": {
     "call": "Llamar",
@@ -15,7 +17,9 @@
     "reportFound": "Reportar Encontrado",
     "downloadRecords": "Descargar Registros",
     "addNewEntry": "Agregar Entrada",
-    "viewMap": "Ver en Mapa"
+    "viewMap": "Ver en Mapa",
+    "registerPet": "Registrar Mascota",
+    "searchPet": "Buscar Mascota"
   },
   "medical": {
     "history": "Historial Médico",
@@ -51,5 +55,26 @@
     "legal": "Legal",
     "about": "Sobre Nosotros",
     "services": "Servicios"
+  },
+  "home": {
+    "hero": {
+      "title": "Encuentra a tu mascota perdida con",
+      "description": "Conectamos dueños de mascotas perdidas con personas que quieren ayudar. Nuestra plataforma hace más fácil y rápido el reencuentro con tu compañero peludo."
+    },
+    "features": {
+      "title": "¿Por qué elegir",
+      "search": {
+        "title": "Búsqueda Eficiente",
+        "description": "Sistema de búsqueda avanzado que conecta mascotas perdidas con sus dueños rápidamente."
+      },
+      "community": {
+        "title": "Comunidad Solidaria",
+        "description": "Red de personas comprometidas con el bienestar de las mascotas perdidas."
+      },
+      "security": {
+        "title": "Información Segura",
+        "description": "Protegemos los datos de las mascotas y sus dueños con los más altos estándares."
+      }
+    }
   }
 }
