@@ -24,7 +24,6 @@ export default function MedicalHistory() {
               {t("medical.validUntil")} 10/05/2024
             </span>
           </div>
-          {/* Add more vaccinations */}
         </div>
       </section>
 

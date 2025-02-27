@@ -69,10 +69,10 @@ export default function About() {
                   Making Pet Care Smarter
                 </h4>
                 <p className="text-gray-600">
-                  At Pet QR Scanner, we're dedicated to improving the lives of
+                  At Pet QR Scanner, were dedicated to improving the lives of
                   pets and their owners by providing instant access to critical
                   pet information. Our QR-based technology ensures that your
-                  pet's medical history, dietary needs, and emergency contacts
+                  pets medical history, dietary needs, and emergency contacts
                   are always just a scan away.
                 </p>
                 <button className="mt-4 bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark">
@@ -91,7 +91,7 @@ export default function About() {
             </h4>
             <p className="text-gray-600 mb-4">
               Founded in 2023, Pet QR Scanner was born from a personal
-              experience when our founder's dog went missing and was found
+              experience when our founders dog went missing and was found
               without any identification. This sparked the idea to create a
               modern, technology-driven solution that goes beyond traditional
               pet tags, providing comprehensive information accessible to anyone
@@ -158,7 +158,7 @@ export default function About() {
         <section className="bg-white rounded-lg p-8 shadow-md">
           <h2 className="text-2xl font-bold text-primary mb-6">Contact Us</h2>
           <p className="text-gray-600 mb-6">
-            Have questions or feedback? We'd love to hear from you!
+            Have questions or feedback? Wed love to hear from you!
           </p>
           <form className="space-y-4">
             <div>

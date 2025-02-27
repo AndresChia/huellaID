@@ -17,6 +17,7 @@ import {
 } from "@mui/material";
 import { Formik, Form, Field, FieldProps, FormikHelpers } from "formik";
 import * as Yup from "yup";
+import { inputStyles, textAreaStyles } from "./styles";
 
 interface FormValues {
   petName: string;
@@ -58,18 +59,6 @@ const validationSchema = Yup.object({
 });
 
 export default function PetRegister() {
-  const inputStyles = {
-    "& .MuiOutlinedInput-root": {
-      borderRadius: "8px",
-    },
-  };
-
-  const textAreaStyles = {
-    borderRadius: "8px",
-    border: "1px solid #ccc",
-    fontFamily: "inherit",
-  };
-
   const initialValues = {
     petName: "",
     species: "",
