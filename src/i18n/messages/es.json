@@ -4,12 +4,31 @@
     "age": "Edad",
     "years": "años",
     "owner": "Dueño",
-    "phone": "Celular",
+    "phone": "Teléfono",
     "address": "Dirección",
     "scanResults": "Resultados del Escaneo",
     "petDetails": "Detalles de la Mascota",
-    "email": "Correo electrónico",
-    "message": "Tu mensaje"
+    "email": "Correo Electrónico",
+    "message": "Tu mensaje",
+    "weight": "Peso",
+    "species": "Especie",
+    "breed": "Raza",
+    "colorMarkings": "Color/Marcas",
+    "medicalInformation": "Información Médica",
+    "allergies": "Alergias",
+    "medications": "Medicamentos",
+    "conditions": "Condiciones Médicas",
+    "ownerName": "Nombre del Dueño",
+    "petName": "Nombre de la Mascota",
+    "countryCode": "Código de País",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "vaccinations": "Vacunas",
+    "veterinaryInfo": "Información Veterinaria",
+    "veterinaryName": "Nombre del Veterinario",
+    "veterinaryPhone": "Teléfono del Veterinario",
+    "veterinaryAddress": "Dirección del Veterinario",
+    "remove": "Eliminar"
   },
   "actions": {
     "call": "Llamar",
@@ -27,7 +46,6 @@
     "recentCheckups": "Chequeos Recientes",
     "vaccinations": "Vacunas",
     "currentMedications": "Medicamentos Actuales",
-    "allergies": "Alergias y Condiciones",
     "veterinaryContact": "Contacto Veterinario",
     "validUntil": "Válido hasta",
     "callClinic": "Llamar Clínica",
@@ -36,7 +54,8 @@
     "avoid": "Evitar",
     "foodSensitivity": "Sensibilidad Alimentaria",
     "avoidChicken": "Evitar productos con pollo",
-    "heartwormPrevention": "Prevención de Gusano del Corazón"
+    "heartwormPrevention": "Prevención de Gusano del Corazón",
+    "conditions": "Condiciones Médicas"
   },
   "navigation": {
     "about": "Sobre Nosotros",
@@ -75,6 +94,115 @@
         "title": "Información Segura",
         "description": "Protegemos los datos de las mascotas y sus dueños con los más altos estándares."
       }
+    }
+  },
+  "petRegister": {
+    "title": "Agregar Nueva Mascota",
+    "subtitle": "Complete los detalles de su mascota para crear un perfil y solicitar una etiqueta",
+    "contactInfo": "Información de Contacto",
+    "vaccinations": "Vacunas",
+    "veterinaryInfo": "Información Veterinaria",
+    "messages": {
+      "success": "¡Registro exitoso! Nos contactaremos contigo para la entrega del tag."
+    },
+    "validation": {
+      "required": "Este campo es requerido",
+      "petName": "El nombre de la mascota es requerido",
+      "species": "La especie es requerida",
+      "breed": "La raza es requerida",
+      "age": {
+        "required": "La edad es requerida",
+        "positive": "La edad debe ser positiva"
+      },
+      "weight": {
+        "required": "El peso es requerido",
+        "positive": "El peso debe ser positivo"
+      },
+      "colorMarkings": "El color/marcas son requeridos",
+      "ownerName": "El nombre del dueño es requerido",
+      "countryCode": "El código de país es requerido",
+      "phoneNumber": "El número de teléfono es requerido",
+      "email": {
+        "required": "El correo electrónico es requerido",
+        "invalid": "Correo electrónico inválido"
+      },
+      "address": "La dirección es requerida",
+      "tagType": "El tipo de etiqueta es requerido",
+      "veterinaryName": "El nombre del veterinario es requerido",
+      "veterinaryPhone": "El teléfono del veterinario es requerido",
+      "veterinaryAddress": "La dirección del veterinario es requerida",
+      "conditions": "Las condiciones médicas son requeridas",
+      "allergies": "Las alergias son requeridas",
+      "medications": "Los medicamentos son requeridos",
+      "vaccinations": {
+        "required": "Las vacunas son requeridas",
+        "min": "Debe seleccionar al menos una vacuna"
+      }
+    },
+    "tagRequest": {
+      "title": "Solicitud de Etiqueta",
+      "request": "Solicitar Etiqueta",
+      "type": "Tipo de Etiqueta",
+      "selectType": "Seleccione el tipo de etiqueta que prefiere",
+      "basic": "Etiqueta Básica",
+      "premium": "Etiqueta Premium",
+      "deluxe": "Etiqueta Deluxe"
+    },
+    "placeholders": {
+      "petName": "Ingrese el nombre de su mascota",
+      "species": "Perro, Gato, Ave, etc.",
+      "breed": "Ingrese la raza",
+      "age": "Años",
+      "weight": "En kg",
+      "colorMarkings": "Describa la apariencia de su mascota",
+      "allergies": "Describa las alergias de su mascota",
+      "medications": "Liste los medicamentos que toma su mascota",
+      "conditions": "Describa las condiciones médicas de su mascota",
+      "ownerName": "Su nombre completo",
+      "phone": "Su número de contacto",
+      "email": "Su dirección de correo electrónico",
+      "address": "Su dirección",
+      "vaccination": "Nombre de la vacuna",
+      "veterinaryName": "Nombre del veterinario",
+      "veterinaryPhone": "Teléfono del veterinario",
+      "veterinaryAddress": "Dirección del veterinario"
+    },
+    "buttons": {
+      "saveAndRequest": "Guardar y Solicitar Tag",
+      "addMedicalInfo": "Agregar Información Médica",
+      "addVaccination": "Agregar Vacuna"
+    }
+  },
+  "species": {
+    "dog": "Perro",
+    "cat": "Gato"
+  },
+  "breeds": {
+    "dog": {
+      "labrador": "Labrador",
+      "germanShepherd": "Pastor Alemán",
+      "goldenRetriever": "Golden Retriever",
+      "frenchBulldog": "French Bulldog",
+      "bulldog": "Bulldog",
+      "poodle": "Poodle",
+      "beagle": "Beagle",
+      "rottweiler": "Rottweiler",
+      "dachshund": "Dachshund",
+      "yorkshireTerrier": "Yorkshire Terrier",
+      "other": "Otro"
+    },
+    "cat": {
+      "persian": "Persian",
+      "maineCoon": "Maine Coon",
+      "siamese": "Siamese",
+      "britishShorthair": "British Shorthair",
+      "ragdoll": "Ragdoll",
+      "bengal": "Bengal",
+      "americanShorthair": "American Shorthair",
+      "scottishFold": "Scottish Fold",
+      "sphynx": "Sphynx",
+      "russianBlue": "Russian Blue",
+      "other": "Otro"
     }
   }
 }

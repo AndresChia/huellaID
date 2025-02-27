@@ -1,8 +1,5 @@
 import React from "react";
-
-interface LogoProps {
-  className?: string;
-}
+import { LogoProps } from "@/interfaces/components";
 
 const Logo: React.FC<LogoProps> = ({ className = "" }) => {
   return (

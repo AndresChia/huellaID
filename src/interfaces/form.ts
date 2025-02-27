@@ -1,0 +1,28 @@
+export interface RegisterPetForm {
+  petName: string;
+  species: string;
+  breed: string;
+  age: string;
+  weight: string;
+  colorMarkings: string;
+  requireMedicalInfo: boolean;
+  showAllergies: boolean;
+  allergies: string;
+  showMedications: boolean;
+  medications: string;
+  showConditions: boolean;
+  conditions: string;
+  showVaccinations: boolean;
+  vaccinations: string[];
+  requireVeterinaryInfo: boolean;
+  veterinaryName: string;
+  veterinaryPhone: string;
+  veterinaryAddress: string;
+  ownerName: string;
+  countryCode: string;
+  phoneNumber: string;
+  email: string;
+  address: string;
+  requestTag: boolean;
+  tagType: string;
+}

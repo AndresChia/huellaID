@@ -1,11 +1,5 @@
 import Link from "next/link";
-
-interface BreadcrumbProps {
-  items: Array<{
-    label: string;
-    href: string;
-  }>;
-}
+import { BreadcrumbProps } from "@/interfaces/components";
 
 export default function Breadcrumb({ items }: BreadcrumbProps) {
   return (

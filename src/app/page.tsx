@@ -1,7 +1,10 @@
-import { Heart, Search, Shield } from "lucide-react";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import SearchIcon from "@mui/icons-material/Search";
+import SecurityIcon from "@mui/icons-material/Security";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+
 export default function Home() {
   const t = useTranslations();
 
@@ -49,7 +52,7 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center p-6">
                 <div className="bg-primary-light p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <Search className="w-8 h-8 text-primary" />
+                  <SearchIcon className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-primary">
                   {t("home.features.search.title")}
@@ -60,7 +63,7 @@ export default function Home() {
               </div>
               <div className="text-center p-6">
                 <div className="bg-primary-light p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <Heart className="w-8 h-8 text-primary" />
+                  <FavoriteIcon className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-primary">
                   {t("home.features.community.title")}
@@ -71,7 +74,7 @@ export default function Home() {
               </div>
               <div className="text-center p-6">
                 <div className="bg-primary-light p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <Shield className="w-8 h-8 text-primary" />
+                  <SecurityIcon className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-primary">
                   {t("home.features.security.title")}

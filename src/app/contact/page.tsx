@@ -1,4 +1,6 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneIcon from "@mui/icons-material/Phone";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { useTranslations } from "next-intl";
 
 export default function ContactPage() {
@@ -15,15 +17,15 @@ export default function ContactPage() {
               </h2>
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
-                  <Phone className="w-6 h-6" />
+                  <PhoneIcon className="w-6 h-6" />
                   <span>+1 234 567 890</span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <Mail className="w-6 h-6" />
+                  <EmailIcon className="w-6 h-6" />
                   <span>contacto@huellaid.com</span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <MapPin className="w-6 h-6" />
+                  <LocationOnIcon className="w-6 h-6" />
                   <span>Ciudad de México, México</span>
                 </div>
               </div>

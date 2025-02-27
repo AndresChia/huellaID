@@ -1,29 +1,63 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import PetHeader from "@/components/pet/PetHeader";
-import PetInfo from "@/components/pet/PetInfo";
-import ActionButtons from "@/components/pet/ActionButtons";
-import MedicalHistory from "@/components/pet/MedicalHistory";
-import { getPetData } from "@/utils/pets";
+import { FirestorePetRepository } from "@/infrastructure/repositories/FirestorePetRepository";
+import { notFound } from "next/navigation";
+import PetHeader from "@/app/pet/[id]/components/PetHeader";
+import PetInfo from "@/app/pet/[id]/components/PetInfo";
+import MedicalHistory from "@/app/pet/[id]/components/MedicalHistory";
+import ActionButtons from "@/app/pet/[id]/components/ActionButtons";
 
 export default async function PetPage({ params }: any) {
-  const { id } = await params;
+  try {
+    const petRepository = new FirestorePetRepository();
+    const pet = await petRepository.getPet(params.id);
 
-  const pet = getPetData(id);
+    const headerProps = {
+      name: pet.petName,
+      species: pet.species,
+    };
 
-  return (
-    <main className="container mx-auto px-4 py-6">
-      <div className="bg-white rounded-lg shadow-sm p-6">
-        <PetHeader pet={pet} />
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
-          <div className="lg:col-span-1">
-            <PetInfo pet={pet} />
-            <ActionButtons />
-          </div>
-          <div className="lg:col-span-2">
-            <MedicalHistory />
+    const infoProps = {
+      age: pet.age,
+      weight: pet.weight,
+      breed: pet.breed,
+      colorMarkings: pet.colorMarkings,
+    };
+
+    const medicalProps = {
+      allergies: pet.showAllergies ? [pet.allergies || ""] : [],
+      medications: pet.showMedications ? [pet.medications || ""] : [],
+      conditions: pet.showConditions ? [pet.conditions || ""] : [],
+      vaccinations: pet.vaccinations || [],
+      requireVeterinaryInfo: pet.requireVeterinaryInfo,
+      showAllergies: pet.showAllergies,
+      showConditions: pet.showConditions,
+      showMedications: pet.showMedications,
+      showVaccinations: pet.showVaccinations,
+      veterinaryContact: {
+        name: pet.veterinaryName || "",
+        phone: pet.veterinaryPhone || "",
+        address: pet.veterinaryAddress || "",
+      },
+    };
+
+    return (
+      <main className="container mx-auto px-4 py-6">
+        <div className="bg-white rounded-lg shadow-sm p-6">
+          <PetHeader {...headerProps} />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
+            <div className="lg:col-span-1">
+              <PetInfo {...infoProps} />
+              <ActionButtons />
+            </div>
+            <div className="lg:col-span-2">
+              <MedicalHistory {...medicalProps} />
+            </div>
           </div>
         </div>
-      </div>
-    </main>
-  );
+      </main>
+    );
+  } catch (error) {
+    console.error("Error fetching pet:", error);
+    notFound();
+  }
 }

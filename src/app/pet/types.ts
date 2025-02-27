@@ -10,7 +10,7 @@ export interface PetRegistrationForm {
   phoneNumber: string;
   email: string;
   address: string;
-  requestQRTag: boolean;
+  requestTag: boolean;
   tagType: string;
 }
 
