@@ -33,6 +33,7 @@
   "actions": {
     "call": "Llamar",
     "sendMessage": "Enviar Mensaje",
+    "sending": "Enviando...",
     "reportFound": "Reportar Encontrado",
     "downloadRecords": "Descargar Registros",
     "addNewEntry": "Agregar Entrada",
@@ -204,5 +205,32 @@
       "russianBlue": "Russian Blue",
       "other": "Otro"
     }
+  },
+  "contact": {
+    "description": "¿Tienes preguntas sobre nuestros servicios? ¡Estamos aquí para ayudarte! Contáctanos por cualquiera de estos medios.",
+    "phone": "Teléfono",
+    "email": "Correo Electrónico",
+    "location": "Ubicación",
+    "hours": "Horario de Atención",
+    "weekdays": "Lunes a Viernes",
+    "weekends": "Sábados y Domingos",
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "q1": "¿Cómo funciona el registro de mascotas?",
+      "a1": "El registro es simple: completa el formulario con los datos de tu mascota, y te enviaremos una etiqueta única con código QR.",
+      "q2": "¿Cuánto tiempo tarda en llegar la etiqueta?",
+      "a2": "El tiempo de entrega es de 3-5 días hábiles dentro de la Ciudad de México, y 5-7 días para el resto del país.",
+      "q3": "¿Qué hago si pierdo la etiqueta?",
+      "a3": "Puedes solicitar un reemplazo contactándonos directamente. El costo de reemplazo es menor al registro inicial."
+    }
+  },
+  "validation": {
+    "required": "Este campo es requerido",
+    "invalidEmail": "Correo electrónico inválido",
+    "messageMin": "El mensaje debe tener al menos 10 caracteres"
+  },
+  "messages": {
+    "emailSent": "¡Mensaje enviado con éxito! Te responderemos pronto.",
+    "emailError": "Hubo un error al enviar el mensaje. Por favor, intenta de nuevo."
   }
 }

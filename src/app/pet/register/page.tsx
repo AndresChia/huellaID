@@ -144,7 +144,7 @@ export default function PetRegister() {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ isSubmitting, errors }) => (
+        {({ isSubmitting }) => (
           <Form>
             <Stack spacing={3}>
               <Box sx={{ borderTop: 1, pt: 3 }}>
@@ -177,8 +177,6 @@ export default function PetRegister() {
                 </Button>
               </Stack>
             </Stack>
-
-            <h1 style={{ color: "red" }}>{JSON.stringify(errors)}</h1>
           </Form>
         )}
       </Formik>
