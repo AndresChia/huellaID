@@ -1,6 +1,9 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export default function About() {
+  const t = useTranslations("about");
+
   const teamMembers = [
     {
       name: "Maria Rodriguez",
@@ -27,21 +30,18 @@ export default function About() {
 
   const values = [
     {
-      title: "Pet Safety First",
-      description:
-        "Every feature we develop is designed with your pet's wellbeing as the top priority.",
+      title: t("values.petSafety.title"),
+      description: t("values.petSafety.description"),
       icon: "🛡️",
     },
     {
-      title: "Innovation",
-      description:
-        "We continuously improve our technology to provide the best possible service for pet owners.",
+      title: t("values.innovation.title"),
+      description: t("values.innovation.description"),
       icon: "💡",
     },
     {
-      title: "Accessibility",
-      description:
-        "Making pet information accessible to everyone who needs it, when they need it.",
+      title: t("values.accessibility.title"),
+      description: t("values.accessibility.description"),
       icon: "🌐",
     },
   ];
@@ -50,33 +50,28 @@ export default function About() {
     <main className="flex min-h-screen flex-col items-center bg-primary-light">
       <div className="w-full max-w-7xl px-4 py-8 md:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-primary mb-4">About Us</h1>
-          <p className="text-lg text-gray-600">
-            Connecting pet owners with essential information through innovative
-            technology
-          </p>
+          <h1 className="text-4xl font-bold text-primary mb-4">{t("title")}</h1>
+          <p className="text-lg text-gray-600">{t("subtitle")}</p>
         </div>
 
         <section className="bg-white rounded-lg p-8 mb-12 shadow-md">
-          <h2 className="text-2xl font-bold text-primary mb-6">Our Mission</h2>
+          <h2 className="text-2xl font-bold text-primary mb-6">
+            {t("mission.title")}
+          </h2>
           <div className="flex flex-col md:flex-row gap-8">
             <div className="flex-1 space-y-4">
               <div className="bg-[#F8F7FF] p-6 rounded-lg">
                 <h3 className="text-xl font-semibold text-primary-dark mb-3">
-                  Our Purpose
+                  {t("mission.purpose.title")}
                 </h3>
                 <h4 className="text-lg font-medium text-black mb-2">
-                  Making Pet Care Smarter
+                  {t("mission.purpose.subtitle")}
                 </h4>
                 <p className="text-gray-600">
-                  At Pet QR Scanner, were dedicated to improving the lives of
-                  pets and their owners by providing instant access to critical
-                  pet information. Our QR-based technology ensures that your
-                  pets medical history, dietary needs, and emergency contacts
-                  are always just a scan away.
+                  {t("mission.purpose.description")}
                 </p>
                 <button className="mt-4 bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark">
-                  Learn More
+                  {t("mission.purpose.button")}
                 </button>
               </div>
             </div>
@@ -84,28 +79,23 @@ export default function About() {
         </section>
 
         <section className="bg-white rounded-lg p-8 mb-12 shadow-md">
-          <h2 className="text-2xl font-bold text-primary mb-6">Our Story</h2>
+          <h2 className="text-2xl font-bold text-primary mb-6">
+            {t("story.title")}
+          </h2>
           <div className="bg-[#F8F7FF] p-6 rounded-lg">
             <h4 className="text-lg font-medium text-black mb-2">
-              From Challenge to Solution
+              {t("story.subtitle")}
             </h4>
-            <p className="text-gray-600 mb-4">
-              Founded in 2023, Pet QR Scanner was born from a personal
-              experience when our founders dog went missing and was found
-              without any identification. This sparked the idea to create a
-              modern, technology-driven solution that goes beyond traditional
-              pet tags, providing comprehensive information accessible to anyone
-              with a smartphone.
-            </p>
+            <p className="text-gray-600 mb-4">{t("story.description")}</p>
             <button className="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark">
-              Our Timeline
+              {t("story.button")}
             </button>
           </div>
         </section>
 
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-primary mb-8 text-center">
-            Our Team
+            {t("team.title")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {teamMembers.map((member, index) => (
@@ -127,7 +117,7 @@ export default function About() {
                 </p>
                 <div className="text-center mt-4">
                   <button className="text-primary hover:underline">
-                    Connect
+                    {t("team.connect")}
                   </button>
                 </div>
               </div>
@@ -137,7 +127,7 @@ export default function About() {
 
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-primary mb-8 text-center">
-            Our Values
+            {t("values.title")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {values.map((value, index) => (
@@ -156,40 +146,46 @@ export default function About() {
         </section>
 
         <section className="bg-white rounded-lg p-8 shadow-md">
-          <h2 className="text-2xl font-bold text-primary mb-6">Contact Us</h2>
-          <p className="text-gray-600 mb-6">
-            Have questions or feedback? Wed love to hear from you!
-          </p>
+          <h2 className="text-2xl font-bold text-primary mb-6">
+            {t("contact.title")}
+          </h2>
+          <p className="text-gray-600 mb-6">{t("contact.subtitle")}</p>
           <form className="space-y-4">
             <div>
-              <label className="block text-gray-700 mb-2">Name</label>
+              <label className="block text-gray-700 mb-2">
+                {t("contact.form.name")}
+              </label>
               <input
                 type="text"
                 className="w-full p-2 border rounded-lg"
-                placeholder="Your name"
+                placeholder={t("contact.form.namePlaceholder")}
               />
             </div>
             <div>
-              <label className="block text-gray-700 mb-2">Email</label>
+              <label className="block text-gray-700 mb-2">
+                {t("contact.form.email")}
+              </label>
               <input
                 type="email"
                 className="w-full p-2 border rounded-lg"
-                placeholder="Your email address"
+                placeholder={t("contact.form.emailPlaceholder")}
               />
             </div>
             <div>
-              <label className="block text-gray-700 mb-2">Message</label>
+              <label className="block text-gray-700 mb-2">
+                {t("contact.form.message")}
+              </label>
               <textarea
                 className="w-full p-2 border rounded-lg"
                 rows={4}
-                placeholder="How can we help you?"
+                placeholder={t("contact.form.messagePlaceholder")}
               />
             </div>
             <button
               type="submit"
               className="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark"
             >
-              Send Message
+              {t("contact.form.button")}
             </button>
           </form>
         </section>

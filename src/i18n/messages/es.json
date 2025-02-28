@@ -237,5 +237,56 @@
   "messages": {
     "emailSent": "¡Mensaje enviado con éxito! Te responderemos pronto.",
     "emailError": "Hubo un error al enviar el mensaje. Por favor, intenta de nuevo."
+  },
+  "about": {
+    "title": "Sobre Nosotros",
+    "subtitle": "Conectando dueños de mascotas con información esencial a través de tecnología innovadora",
+    "mission": {
+      "title": "Nuestra Misión",
+      "purpose": {
+        "title": "Nuestro Propósito",
+        "subtitle": "Haciendo el Cuidado de Mascotas más Inteligente",
+        "description": "En Pet QR Scanner, estamos dedicados a mejorar la vida de las mascotas y sus dueños proporcionando acceso instantáneo a información crítica de las mascotas. Nuestra tecnología basada en QR asegura que el historial médico, necesidades dietéticas y contactos de emergencia de tus mascotas estén siempre a un escaneo de distancia.",
+        "button": "Saber Más"
+      }
+    },
+    "story": {
+      "title": "Nuestra Historia",
+      "subtitle": "Del Desafío a la Solución",
+      "description": "Fundada en 2023, Pet QR Scanner nació de una experiencia personal cuando el perro de nuestros fundadores se perdió y fue encontrado sin identificación. Esto inspiró la idea de crear una solución moderna, impulsada por la tecnología que va más allá de las etiquetas tradicionales para mascotas, proporcionando información completa accesible para cualquiera con un smartphone.",
+      "button": "Nuestra Línea de Tiempo"
+    },
+    "team": {
+      "title": "Nuestro Equipo",
+      "connect": "Conectar"
+    },
+    "values": {
+      "title": "Nuestros Valores",
+      "petSafety": {
+        "title": "Seguridad de Mascotas Primero",
+        "description": "Cada característica que desarrollamos está diseñada con el bienestar de tu mascota como máxima prioridad."
+      },
+      "innovation": {
+        "title": "Innovación",
+        "description": "Mejoramos continuamente nuestra tecnología para proporcionar el mejor servicio posible para los dueños de mascotas."
+      },
+      "accessibility": {
+        "title": "Accesibilidad",
+        "description": "Haciendo la información de las mascotas accesible para todos los que la necesitan, cuando la necesitan."
+      }
+    },
+    "contact": {
+      "title": "Contáctanos",
+      "subtitle": "¿Tienes preguntas o comentarios? ¡Nos encantaría escucharte!",
+      "form": {
+        "name": "Nombre",
+        "namePlaceholder": "Tu nombre",
+        "email": "Correo electrónico",
+        "emailPlaceholder": "Tu dirección de correo electrónico",
+        "message": "Mensaje",
+        "messagePlaceholder": "¿Cómo podemos ayudarte?",
+        "button": "Enviar Mensaje"
+      }
+    }
   }
 }
