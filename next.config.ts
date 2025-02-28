@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const createNextIntlPlugin = require("next-intl/plugin");
 
 const withNextIntl = createNextIntlPlugin();
@@ -8,16 +9,16 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "placekitten.com",
+        hostname: "images.unsplash.com",
       },
       {
         protocol: "https",
-        hostname: "cdn.pixabay.com",
+        hostname: "i.postimg.cc",
       },
     ],
   },
   experimental: {
-    optimizePackageImports: ["@chakra-ui/react"],
+    optimizePackageImports: [],
   },
 };
 

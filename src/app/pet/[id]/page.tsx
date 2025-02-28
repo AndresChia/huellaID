@@ -5,15 +5,18 @@ import PetHeader from "@/app/pet/[id]/components/PetHeader";
 import PetInfo from "@/app/pet/[id]/components/PetInfo";
 import MedicalHistory from "@/app/pet/[id]/components/MedicalHistory";
 import ActionButtons from "@/app/pet/[id]/components/ActionButtons";
+import ModalActivation from "@/app/pet/[id]/components/ModalActivation";
 
 export default async function PetPage({ params }: any) {
   try {
+    const { id } = await params;
     const petRepository = new FirestorePetRepository();
-    const pet = await petRepository.getPet(params.id);
+    const pet = await petRepository.getPet(id);
 
     const headerProps = {
       name: pet.petName,
       species: pet.species,
+      photo: pet.photo,
     };
 
     const infoProps = {
@@ -41,20 +44,23 @@ export default async function PetPage({ params }: any) {
     };
 
     return (
-      <main className="container mx-auto px-4 py-6">
-        <div className="bg-white rounded-lg shadow-sm p-6">
-          <PetHeader {...headerProps} />
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
-            <div className="lg:col-span-1">
-              <PetInfo {...infoProps} />
-              <ActionButtons />
-            </div>
-            <div className="lg:col-span-2">
-              <MedicalHistory {...medicalProps} />
+      <>
+        <ModalActivation isOpen={pet.activate} />
+        <main className="container mx-auto px-4 py-6">
+          <div className="bg-white rounded-lg shadow-sm p-6">
+            <PetHeader {...headerProps} />
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
+              <div className="lg:col-span-1">
+                <PetInfo {...infoProps} />
+                <ActionButtons />
+              </div>
+              <div className="lg:col-span-2">
+                <MedicalHistory {...medicalProps} />
+              </div>
             </div>
           </div>
-        </div>
-      </main>
+        </main>
+      </>
     );
   } catch (error) {
     console.error("Error fetching pet:", error);

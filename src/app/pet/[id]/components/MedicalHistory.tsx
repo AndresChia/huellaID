@@ -1,11 +1,24 @@
 "use client";
 import { useTranslations } from "next-intl";
 
-interface VeterinaryContact {
+type VeterinaryContact = {
   name: string;
   phone: string;
   address: string;
-}
+};
+
+type MedicalHistoryProps = {
+  allergies: string[];
+  medications: string[];
+  conditions: string[];
+  vaccinations: string[];
+  veterinaryContact: VeterinaryContact | undefined;
+  requireVeterinaryInfo: boolean;
+  showAllergies: boolean;
+  showConditions: boolean;
+  showMedications: boolean;
+  showVaccinations: boolean;
+};
 
 export default function MedicalHistory({
   allergies = [],
@@ -18,18 +31,7 @@ export default function MedicalHistory({
   showConditions = false,
   showMedications = false,
   showVaccinations = false,
-}: {
-  allergies: string[];
-  medications: string[];
-  conditions: string[];
-  vaccinations: string[];
-  veterinaryContact: VeterinaryContact | undefined;
-  requireVeterinaryInfo: boolean;
-  showAllergies: boolean;
-  showConditions: boolean;
-  showMedications: boolean;
-  showVaccinations: boolean;
-}) {
+}: MedicalHistoryProps) {
   const t = useTranslations();
 
   return (

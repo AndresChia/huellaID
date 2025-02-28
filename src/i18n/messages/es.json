@@ -19,7 +19,7 @@
     "medications": "Medicamentos",
     "conditions": "Condiciones Médicas",
     "ownerName": "Nombre del Dueño",
-    "petName": "Nombre de la Mascota",
+    "petName": "Nombre de la mascota",
     "countryCode": "Código de País",
     "cancel": "Cancelar",
     "save": "Guardar",
@@ -28,7 +28,8 @@
     "veterinaryName": "Nombre del Veterinario",
     "veterinaryPhone": "Teléfono del Veterinario",
     "veterinaryAddress": "Dirección del Veterinario",
-    "remove": "Eliminar"
+    "remove": "Eliminar",
+    "photo": "Foto de la mascota"
   },
   "actions": {
     "call": "Llamar",
@@ -103,12 +104,15 @@
     "contactInfo": "Información de Contacto",
     "vaccinations": "Vacunas",
     "veterinaryInfo": "Información Veterinaria",
+    "uploadPhoto": "Subir foto",
+    "changePhoto": "Cambiar foto",
     "messages": {
       "success": "¡Registro exitoso! Nos contactaremos contigo para la entrega del tag."
     },
     "validation": {
       "required": "Este campo es requerido",
       "petName": "El nombre de la mascota es requerido",
+      "photo": "La foto de la mascota es requerida",
       "species": "La especie es requerida",
       "breed": "La raza es requerida",
       "age": {
@@ -151,8 +155,8 @@
     },
     "placeholders": {
       "petName": "Ingrese el nombre de su mascota",
-      "species": "Perro, Gato, Ave, etc.",
-      "breed": "Ingrese la raza",
+      "species": "Ingrese la especie de su mascota",
+      "breed": "Ingrese la raza de su mascota",
       "age": "Años",
       "weight": "En kg",
       "colorMarkings": "Describa la apariencia de su mascota",
@@ -180,6 +184,7 @@
   },
   "breeds": {
     "dog": {
+      "creole": "Criollo",
       "labrador": "Labrador",
       "germanShepherd": "Pastor Alemán",
       "goldenRetriever": "Golden Retriever",

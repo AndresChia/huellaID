@@ -7,7 +7,6 @@ import { RegisterPetForm } from "@/interfaces/form";
 import { FirestorePetRepository } from "@/infrastructure/repositories/FirestorePetRepository";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-import { useCustomSnackbar } from "@/components/CustomSnackbar";
 import {
   PetData,
   ContactInfo,
@@ -23,6 +22,7 @@ const initialValues: RegisterPetForm = {
   age: "",
   weight: "",
   colorMarkings: "",
+  photo: "",
   requireMedicalInfo: false,
   showAllergies: false,
   allergies: "",
@@ -37,12 +37,13 @@ const initialValues: RegisterPetForm = {
   veterinaryPhone: "",
   veterinaryAddress: "",
   ownerName: "",
-  countryCode: "+1",
+  countryCode: "+57",
   phoneNumber: "",
   email: "",
   address: "",
   requestTag: false,
   tagType: "",
+  activate: false,
 };
 
 export default function PetRegister() {
@@ -50,7 +51,6 @@ export default function PetRegister() {
   const p = useTranslations("petRegister");
   const v = useTranslations("petRegister.validation");
   const router = useRouter();
-  const { showMessage, SnackbarComponent } = useCustomSnackbar();
 
   const validationSchema = Yup.object<RegisterPetForm>({
     petName: Yup.string().required(v("petName")),
@@ -61,6 +61,7 @@ export default function PetRegister() {
       .required(v("weight.required"))
       .positive(v("weight.positive")),
     colorMarkings: Yup.string().required(v("colorMarkings")),
+    photo: Yup.mixed().optional().nullable(),
     requireMedicalInfo: Yup.boolean(),
     allergies: Yup.string().when(["requireMedicalInfo", "showAllergies"], {
       is: (requireMedicalInfo: boolean, showAllergies: boolean) =>
@@ -117,13 +118,7 @@ export default function PetRegister() {
       const petId = await petRepository.savePet(values);
       setSubmitting(false);
       resetForm();
-      showMessage({
-        message: p("messages.success"),
-        severity: "success",
-      });
-      setTimeout(() => {
-        router.push(`/pet/${petId}`);
-      }, 0);
+      router.push(`/pet/${petId}`);
     } catch (error) {
       console.error("Error saving pet:", error);
       setSubmitting(false);
@@ -144,7 +139,7 @@ export default function PetRegister() {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ isSubmitting }) => (
+        {({ isSubmitting, errors }) => (
           <Form>
             <Stack spacing={3}>
               <Box sx={{ borderTop: 1, pt: 3 }}>
@@ -177,11 +172,10 @@ export default function PetRegister() {
                 </Button>
               </Stack>
             </Stack>
+            <h1 className="text-red-500">{JSON.stringify(errors)}</h1>
           </Form>
         )}
       </Formik>
-
-      {SnackbarComponent}
     </Container>
   );
 }

@@ -2,6 +2,7 @@ export const SPECIES = ["dog", "cat"] as const;
 
 export const BREEDS = {
   dog: [
+    "creole",
     "labrador",
     "germanShepherd",
     "goldenRetriever",
@@ -30,8 +31,8 @@ export const BREEDS = {
 };
 
 export const COUNTRY_CODES = [
-  { code: "+1", country: "USA/Canada" },
   { code: "+57", country: "Colombia" },
+  { code: "+1", country: "USA/Canada" },
   { code: "+52", country: "Mexico" },
   { code: "+54", country: "Argentina" },
   { code: "+34", country: "Spain" },

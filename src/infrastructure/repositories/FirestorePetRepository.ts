@@ -7,18 +7,34 @@ import {
   updateDoc,
   deleteDoc,
 } from "firebase/firestore";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { db } from "../firebase/config";
 import { RegisterPetForm } from "@/interfaces/form";
 import { PetRepository } from "@/interfaces/repositories/PetRepository";
 
 export class FirestorePetRepository implements PetRepository {
   private readonly collectionName = "pets";
+  private readonly storage = getStorage();
 
   async savePet(pet: RegisterPetForm): Promise<string> {
     const petsRef = collection(db, this.collectionName);
     const newPetRef = doc(petsRef);
-    await setDoc(newPetRef, pet);
-    return newPetRef.id;
+    const petId = newPetRef.id;
+
+    let photoUrl = "";
+    if (pet.photo) {
+      const storageRef = ref(this.storage, `pets/${petId}/photo`);
+      await uploadBytes(storageRef, pet.photo);
+      photoUrl = await getDownloadURL(storageRef);
+    }
+
+    const petData = {
+      ...pet,
+      photo: photoUrl,
+    };
+
+    await setDoc(newPetRef, petData);
+    return petId;
   }
 
   async getPet(id: string): Promise<RegisterPetForm> {
@@ -31,8 +47,20 @@ export class FirestorePetRepository implements PetRepository {
 
   async updatePet(id: string, pet: RegisterPetForm): Promise<void> {
     const petRef = doc(db, this.collectionName, id);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    await updateDoc(petRef, pet as any);
+    let photoUrl = "";
+
+    if (pet.photo instanceof File) {
+      const storageRef = ref(this.storage, `pets/${id}/photo`);
+      await uploadBytes(storageRef, pet.photo);
+      photoUrl = await getDownloadURL(storageRef);
+    }
+
+    const petData = {
+      ...pet,
+      photo: photoUrl || pet.photo,
+    };
+
+    await updateDoc(petRef, petData);
   }
 
   async deletePet(id: string): Promise<void> {

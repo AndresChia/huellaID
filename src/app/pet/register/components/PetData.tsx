@@ -9,11 +9,13 @@ import {
   Typography,
   Stack,
 } from "@mui/material";
+// Button,
 import { Field, FieldProps } from "formik";
 import { RegisterPetForm } from "@/interfaces/form";
 import { BREEDS, SPECIES } from "@/constants/pets";
 import { inputStyles } from "../styles";
 import { useTranslations } from "next-intl";
+//import { ChangeEvent, useRef } from "react";
 
 export const PetData = () => {
   const c = useTranslations("common");
@@ -21,6 +23,8 @@ export const PetData = () => {
   const s = useTranslations("species");
   const dogBreeds = useTranslations("breeds.dog");
   const catBreeds = useTranslations("breeds.cat");
+  //const fileInputRef = useRef<HTMLInputElement>(null);
+
   return (
     <Box>
       <Typography variant="h5" fontWeight="bold" mb={3} color="primary">
@@ -52,7 +56,47 @@ export const PetData = () => {
             </FormControl>
           )}
         </Field>
-
+        {/*
+            <Field name="photo">
+              {({
+                field: { value },
+                form: { setFieldValue, touched, errors },
+              }: FieldProps<RegisterPetForm>) => (
+                <FormControl error={!!(touched.photo && errors.photo)} fullWidth>
+                  <FormLabel>{c("photo")}</FormLabel>
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept="image/*"
+                    style={{ display: "none" }}
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                      const file = event.currentTarget.files?.[0] || null;
+                      setFieldValue("photo", file);
+                    }}
+                  />
+                  <Button
+                    variant="outlined"
+                    onClick={() => fileInputRef.current?.click()}
+                    sx={{ mt: 1 }}
+                  >
+                    {value ? p("changePhoto") : p("uploadPhoto")}
+                  </Button>
+                  {value && (
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{ mt: 1 }}
+                    >
+                      {value.name}
+                    </Typography>
+                  )}
+                  {touched.photo && errors.photo && (
+                    <FormHelperText error>{String(errors.photo)}</FormHelperText>
+                  )}
+                </FormControl>
+              )}
+            </Field>
+            */}
         <Field name="species">
           {({ field, form }: FieldProps<RegisterPetForm>) => (
             <FormControl
@@ -82,7 +126,6 @@ export const PetData = () => {
             </FormControl>
           )}
         </Field>
-
         <Field name="breed">
           {({
             field,
@@ -112,7 +155,6 @@ export const PetData = () => {
             </FormControl>
           )}
         </Field>
-
         <Field name="age">
           {({
             field,
@@ -132,7 +174,6 @@ export const PetData = () => {
             </FormControl>
           )}
         </Field>
-
         <Field name="weight">
           {({
             field,
@@ -154,7 +195,6 @@ export const PetData = () => {
             </FormControl>
           )}
         </Field>
-
         <Field name="colorMarkings">
           {({
             field,

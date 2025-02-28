@@ -5,6 +5,7 @@ export interface RegisterPetForm {
   age: string;
   weight: string;
   colorMarkings: string;
+  photo: string;
   requireMedicalInfo: boolean;
   showAllergies: boolean;
   allergies: string;
@@ -25,4 +26,5 @@ export interface RegisterPetForm {
   address: string;
   requestTag: boolean;
   tagType: string;
+  activate: boolean;
 }
