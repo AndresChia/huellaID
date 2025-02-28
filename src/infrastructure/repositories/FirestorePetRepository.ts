@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   collection,
   doc,
@@ -7,7 +8,7 @@ import {
   updateDoc,
   deleteDoc,
 } from "firebase/firestore";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { getStorage } from "firebase/storage";
 import { db } from "../firebase/config";
 import { RegisterPetForm } from "@/interfaces/form";
 import { PetRepository } from "@/interfaces/repositories/PetRepository";
@@ -21,7 +22,7 @@ export class FirestorePetRepository implements PetRepository {
     const newPetRef = doc(petsRef);
     const petId = newPetRef.id;
 
-    let photoUrl = "";
+    /*let photoUrl = "";
     if (pet.photo) {
       const storageRef = ref(this.storage, `pets/${petId}/photo`);
       await uploadBytes(storageRef, pet.photo);
@@ -33,7 +34,9 @@ export class FirestorePetRepository implements PetRepository {
       photo: photoUrl,
     };
 
-    await setDoc(newPetRef, petData);
+    */
+
+    await setDoc(newPetRef, pet);
     return petId;
   }
 
@@ -47,6 +50,8 @@ export class FirestorePetRepository implements PetRepository {
 
   async updatePet(id: string, pet: RegisterPetForm): Promise<void> {
     const petRef = doc(db, this.collectionName, id);
+
+    /*
     let photoUrl = "";
 
     if (pet.photo instanceof File) {
@@ -59,8 +64,9 @@ export class FirestorePetRepository implements PetRepository {
       ...pet,
       photo: photoUrl || pet.photo,
     };
+    */
 
-    await updateDoc(petRef, petData);
+    await updateDoc(petRef, pet as any);
   }
 
   async deletePet(id: string): Promise<void> {
