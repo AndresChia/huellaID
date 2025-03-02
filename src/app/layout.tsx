@@ -20,17 +20,22 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://huellaid.com"),
   title: {
-    default: "HuellaID - Identidad Digital Segura",
+    default: "HuellaID - Identificación Digital para Mascotas",
     template: "%s | HuellaID",
   },
   description:
-    "HuellaID es tu solución integral para la gestión segura de identidad digital. Protege y verifica identidades de manera eficiente y confiable.",
+    "HuellaID ofrece identificación digital segura para mascotas mediante tags NFC y códigos QR. Protege a tu mascota y accede a su información vital al instante.",
   keywords: [
-    "identidad digital",
-    "verificación de identidad",
-    "seguridad digital",
-    "biometría",
-    "autenticación",
+    "identificación mascotas",
+    "tag NFC mascotas",
+    "código QR mascota",
+    "perfil digital mascota",
+    "placa identificación mascota",
+    "mascota perdida",
+    "registro mascota",
+    "historial mascota",
+    "identificación digital",
+    "seguridad mascota",
   ],
   authors: [{ name: "HuellaID Team" }],
   icons: {
@@ -44,29 +49,35 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_ES",
     url: "https://huellaid.com",
-    title: "HuellaID - Identidad Digital Segura",
+    title: "HuellaID - Identificación Digital para Mascotas",
     description:
-      "Solución integral para la gestión y verificación de identidad digital",
+      "Sistema innovador de identificación para mascotas con tecnología NFC y QR. Acceso instantáneo a información vital de tu mascota.",
     siteName: "HuellaID",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "HuellaID Preview",
+        alt: "HuellaID - Identificación Digital para Mascotas",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "HuellaID - Identidad Digital Segura",
+    title: "HuellaID - Identificación Digital para Mascotas",
     description:
-      "Solución integral para la gestión y verificación de identidad digital",
+      "Sistema innovador de identificación para mascotas con tecnología NFC y QR. Acceso instantáneo a información vital de tu mascota.",
     images: ["/twitter-image.jpg"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

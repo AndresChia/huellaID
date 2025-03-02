@@ -1,29 +1,48 @@
-import MedicalServicesIcon from "@mui/icons-material/MedicalServices";
-import ContentCutIcon from "@mui/icons-material/ContentCut";
-import VaccinesIcon from "@mui/icons-material/Vaccines";
-import HealingIcon from "@mui/icons-material/Healing";
+import QrCodeIcon from "@mui/icons-material/QrCode";
+import NfcIcon from "@mui/icons-material/Nfc";
+import CloudSyncIcon from "@mui/icons-material/CloudSync";
+import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 export default function ServicesPage() {
+  const t = useTranslations("services");
+
   const services = [
     {
-      title: "Consulta Veterinaria",
-      description: "Atención médica profesional para tu mascota",
-      icon: <MedicalServicesIcon className="w-full h-full text-primary" />,
+      title: t("items.nfc.title"),
+      description: t("items.nfc.description"),
+      icon: <NfcIcon className="w-full h-full text-primary" />,
     },
     {
-      title: "Peluquería",
-      description: "Servicios de aseo y estética para mascotas",
-      icon: <ContentCutIcon className="w-full h-full text-primary" />,
+      title: t("items.qr.title"),
+      description: t("items.qr.description"),
+      icon: <QrCodeIcon className="w-full h-full text-primary" />,
     },
     {
-      title: "Vacunación",
-      description: "Programa completo de vacunación preventiva",
-      icon: <VaccinesIcon className="w-full h-full text-primary" />,
+      title: t("items.profile.title"),
+      description: t("items.profile.description"),
+      icon: <CloudSyncIcon className="w-full h-full text-primary" />,
     },
     {
-      title: "Cirugía",
-      description: "Procedimientos quirúrgicos con equipo especializado",
-      icon: <HealingIcon className="w-full h-full text-primary" />,
+      title: t("items.support.title"),
+      description: t("items.support.description"),
+      icon: <SupportAgentIcon className="w-full h-full text-primary" />,
+    },
+  ];
+
+  const benefits = [
+    {
+      title: t("benefits.items.technology.title"),
+      description: t("benefits.items.technology.description"),
+    },
+    {
+      title: t("benefits.items.eco.title"),
+      description: t("benefits.items.eco.description"),
+    },
+    {
+      title: t("benefits.items.social.title"),
+      description: t("benefits.items.social.description"),
     },
   ];
 
@@ -32,22 +51,19 @@ export default function ServicesPage() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-primary mb-4">
-            Nuestros Servicios
+            {t("hero.title")}
           </h1>
-          <p className="text-xl text-gray-600 mb-12">
-            Ofrecemos una amplia gama de servicios veterinarios para el cuidado
-            integral de tu mascota
-          </p>
+          <p className="text-xl text-gray-600 mb-12">{t("hero.description")}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 "
+              className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
             >
               <div className="flex justify-center mb-4">
-                <div className="relative w-16 h-16 ">{service.icon}</div>
+                <div className="relative w-16 h-16">{service.icon}</div>
               </div>
               <h3 className="text-xl font-semibold text-primary mb-2 text-center">
                 {service.title}
@@ -59,35 +75,34 @@ export default function ServicesPage() {
 
         <div className="mt-16 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
-            ¿Por qué elegirnos?
+            {t("benefits.title")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-3 text-primary">
-                Experiencia
-              </h3>
-              <p className="text-gray-600">
-                Equipo de profesionales altamente calificados con años de
-                experiencia
-              </p>
-            </div>
-            <div className="bg-white rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-3 text-primary">
-                Atención 24/7
-              </h3>
-              <p className="text-gray-600">
-                Disponibilidad permanente para emergencias veterinarias
-              </p>
-            </div>
-            <div className="bg-white rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-3 text-primary">
-                Tecnología
-              </h3>
-              <p className="text-gray-600">
-                Equipamiento moderno para diagnósticos precisos y tratamientos
-                efectivos
-              </p>
-            </div>
+            {benefits.map((benefit, index) => (
+              <div key={index} className="bg-white rounded-lg p-6">
+                <h3 className="text-xl font-semibold mb-3 text-primary">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-600">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-16 bg-white rounded-lg p-8 shadow-lg">
+          <h2 className="text-3xl font-bold text-primary mb-6 text-center">
+            {t("adoption.title")}
+          </h2>
+          <p className="text-gray-600 text-center mb-8">
+            {t("adoption.description")}
+          </p>
+          <div className="text-center">
+            <Link
+              href="/pet/register"
+              className="bg-primary text-white px-8 py-3 rounded-full hover:bg-primary-dark transition-colors"
+            >
+              {t("adoption.cta")}
+            </Link>
           </div>
         </div>
       </div>

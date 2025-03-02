@@ -1,4 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# HuellaID - Digital Pet Identification 🐾
+
+HuellaID is an innovative platform that provides digital identification for pets using NFC tags and QR codes, enabling instant access to vital pet information and facilitating their recovery in case of loss.
+
+## 🚀 Key Features
+
+- **NFC Tags & QR Codes**: Smart and durable identification
+- **Digital Profiles**: Complete pet history management
+- **24/7 Support**: Assistance for lost pets
+- **Social Impact**: Tag donation program for shelters
+- **National Coverage**: Shipping throughout Colombia
+
+## 💻 Technologies
+
+- [Next.js](https://nextjs.org/) - React Framework
+- [TypeScript](https://www.typescriptlang.org/) - Static Typing
+- [Material-UI](https://mui.com/) - UI Components
+- [Tailwind CSS](https://tailwindcss.com/) - CSS Framework
+- [Firebase](https://firebase.google.com/) - Backend & Database
+- [Formik](https://formik.org/) - Form Management
+- [Yup](https://github.com/jquense/yup) - Schema Validation
+- [next-intl](https://next-intl-docs.vercel.app/) - Internationalization
+
+## 🛠️ Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/huellaid.git
+```
+
+2. Install dependencies:
+
+```bash
+cd huellaid
+npm install
+```
+
+3. Set up environment variables:
+
+```bash
+cp .env.example .env.local
+```
+
+4. Start the development server:
+
+```bash
+npm run dev
+```
+
+## 🎨 Theme & Design
+
+We use a custom design system with the following colors:
+
+- **Primary**: `#634AFF` - Brand color
+- **Black**: `#242424` - Text and dark backgrounds
+- **Complementary**:
+  - Brown: `#A67C52` - Pet-related elements
+  - Beige: `#F5E6D3` - Soft backgrounds
+  - Sage: `#A8C7B5` - Natural elements
+  - Coral: `#FF8D7E` - Accents
+
+## 📝 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run linter
+- `npm run format` - Format code
+- `npm test-all` - Run all checks
+
+## 🌐 Deployment
+
+The application is optimized for deployment on [Vercel](https://vercel.com). To deploy:
+
+1. Connect your repository to Vercel
+2. Configure environment variables
+3. Auto-deploy with each push to main
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+## 👥 Team
+
+- **Andrés Felipe Chía Ávila** - Founder & CEO
+
+## 📞 Contact
+
+- WhatsApp: +57 321 237 5438
+- Business Hours:
+  - Monday to Friday: 9AM - 9PM (COT)
+  - Weekends: 9AM - 8PM (COT)
+- Locations: Medellín and Bogotá, Colombia
+- Shipping: Available throughout Colombia
+
+## 🤝 Contributing
+
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+## 🎨 Using Theme Colors
+
+To use these colors in your components, you can use our custom Tailwind classes:
+
+```html
+<div class="bg-primary text-dark">
+  <div class="bg-pet-brown text-pet-beige"></div>
+</div>
+```
 
 ## Getting Started
 

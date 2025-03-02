@@ -46,7 +46,7 @@ export default function Home() {
 
         <section className="py-16 px-4 bg-white">
           <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-bold text-center text-dark mb-12">
+            <h2 className="text-3xl font-bold text-center text-primary mb-12">
               {t("home.features.title")} {t("navigation.logo")}?
             </h2>
             <div className="grid md:grid-cols-3 gap-8">

@@ -71,7 +71,7 @@
     "terms": "Términos y Condiciones",
     "privacy": "Política de Privacidad",
     "contact": "Contacto",
-    "description": "Conectando mascotas y familias a través de tecnología innovadora y cuidado responsable.",
+    "description": "Conectando mascotas con sus familias a través de tecnología innovadora y cuidado responsable.",
     "quickLinks": "Enlaces Rápidos",
     "legal": "Legal",
     "about": "Sobre Nosotros",
@@ -212,21 +212,47 @@
     }
   },
   "contact": {
+    "title": "Contáctanos",
     "description": "¿Tienes preguntas sobre nuestros servicios? ¡Estamos aquí para ayudarte! Contáctanos por cualquiera de estos medios.",
-    "phone": "Teléfono",
+    "phone": "WhatsApp",
     "email": "Correo Electrónico",
     "location": "Ubicación",
     "hours": "Horario de Atención",
     "weekdays": "Lunes a Viernes",
     "weekends": "Sábados y Domingos",
+    "locations": {
+      "title": "Ubicaciones",
+      "cities": "Medellín y Bogotá",
+      "shipping": "Envíos a todo el país"
+    },
+    "whatsapp": {
+      "number": "+57 321 237 5438",
+      "weekdays": "9:00 AM - 9:00 PM",
+      "weekends": "9:00 AM - 8:00 PM"
+    },
     "faq": {
       "title": "Preguntas Frecuentes",
       "q1": "¿Cómo funciona el registro de mascotas?",
-      "a1": "El registro es simple: completa el formulario con los datos de tu mascota, y te enviaremos una etiqueta única con código QR.",
-      "q2": "¿Cuánto tiempo tarda en llegar la etiqueta?",
-      "a2": "El tiempo de entrega es de 3-5 días hábiles dentro de la Ciudad de México, y 5-7 días para el resto del país.",
-      "q3": "¿Qué hago si pierdo la etiqueta?",
+      "a1": "El proceso es simple: primero completas el registro con los datos de tu mascota. Luego nos comunicaremos contigo para coordinar el pago, elegir el diseño del tag y confirmar los datos pendientes.",
+      "q2": "¿Cuánto tiempo tarda en llegar el tag?",
+      "a2": "Los tiempos de entrega varían según tu ubicación: mismo día en Medellín, y de 1 a más días para otras ciudades del país.",
+      "q3": "¿Qué hago si pierdo el tag?",
       "a3": "Puedes solicitar un reemplazo contactándonos directamente. El costo de reemplazo es menor al registro inicial."
+    },
+    "form": {
+      "name": {
+        "label": "Nombre",
+        "placeholder": "Tu nombre"
+      },
+      "email": {
+        "label": "Correo electrónico",
+        "placeholder": "Tu correo electrónico"
+      },
+      "message": {
+        "label": "Mensaje",
+        "placeholder": "¿Cómo podemos ayudarte?"
+      },
+      "submit": "Enviar Mensaje"
     }
   },
   "validation": {
@@ -239,54 +265,121 @@
     "emailError": "Hubo un error al enviar el mensaje. Por favor, intenta de nuevo."
   },
   "about": {
-    "title": "Sobre Nosotros",
-    "subtitle": "Conectando dueños de mascotas con información esencial a través de tecnología innovadora",
+    "hero": {
+      "title": "Sobre Nosotros",
+      "description": "En HuellaID, creemos en un mundo donde la tecnología puede mejorar la vida de nuestras mascotas y sus dueños. Por eso, desarrollamos un sistema innovador de identificación basado en tags NFC y códigos QR que permite acceder a información vital sobre la mascota, como datos de contacto del dueño, historial médico y necesidades alimenticias. Nuestro propósito es conectar, proteger y facilitar la reunificación de mascotas perdidas con sus familias, mientras promovemos prácticas más sostenibles y responsables."
+    },
     "mission": {
       "title": "Nuestra Misión",
       "purpose": {
         "title": "Nuestro Propósito",
-        "subtitle": "Haciendo el Cuidado de Mascotas más Inteligente",
-        "description": "En Pet QR Scanner, estamos dedicados a mejorar la vida de las mascotas y sus dueños proporcionando acceso instantáneo a información crítica de las mascotas. Nuestra tecnología basada en QR asegura que el historial médico, necesidades dietéticas y contactos de emergencia de tus mascotas estén siempre a un escaneo de distancia.",
-        "button": "Saber Más"
+        "description": "En HuellaID, nuestra misión es utilizar la tecnología para mejorar el bienestar de las mascotas y facilitar su identificación en caso de pérdida. Queremos reducir la contaminación generada por chapas tradicionales desechables, proporcionando una solución duradera y eficiente. Además, creemos en el impacto social de nuestro trabajo, por lo que donamos tags NFC y QR a fundaciones para ayudar en el proceso de adopción y garantizar que cada mascota adoptada tenga un dueño identificado desde el primer momento."
       }
     },
     "story": {
       "title": "Nuestra Historia",
-      "subtitle": "Del Desafío a la Solución",
-      "description": "Fundada en 2023, Pet QR Scanner nació de una experiencia personal cuando el perro de nuestros fundadores se perdió y fue encontrado sin identificación. Esto inspiró la idea de crear una solución moderna, impulsada por la tecnología que va más allá de las etiquetas tradicionales para mascotas, proporcionando información completa accesible para cualquiera con un smartphone.",
-      "button": "Nuestra Línea de Tiempo"
+      "description": "HuellaID nació de la visión de Andrés Felipe Chía Ávila, un apasionado por la tecnología y el bienestar animal. Al notar que muchas mascotas perdidas no lograban reunirse con sus familias debido a la falta de información accesible en sus identificaciones, decidió crear una alternativa digital, ecológica y eficiente. Así surgió un sistema que no solo ayuda a los dueños a mantener a sus mascotas seguras, sino que también colabora con fundaciones para impulsar la adopción responsable."
     },
     "team": {
       "title": "Nuestro Equipo",
-      "connect": "Conectar"
+      "description": "Somos un equipo comprometido con la innovación, la sostenibilidad y el amor por los animales. Nuestra pasión por la tecnología nos motiva a desarrollar soluciones que marquen la diferencia en la vida de las mascotas y sus familias. Cada uno de nosotros aporta su experiencia en desarrollo, diseño y gestión para hacer de HuellaID un referente en identificación digital de mascotas.",
+      "members": {
+        "andres": {
+          "name": "Andrés Felipe Chía Ávila",
+          "role": "Fundador & CEO",
+          "description": "Apasionado por la tecnología y el bienestar animal, creador de HuellaID."
+        }
+      }
     },
     "values": {
       "title": "Nuestros Valores",
-      "petSafety": {
-        "title": "Seguridad de Mascotas Primero",
-        "description": "Cada característica que desarrollamos está diseñada con el bienestar de tu mascota como máxima prioridad."
-      },
-      "innovation": {
-        "title": "Innovación",
-        "description": "Mejoramos continuamente nuestra tecnología para proporcionar el mejor servicio posible para los dueños de mascotas."
-      },
-      "accessibility": {
-        "title": "Accesibilidad",
-        "description": "Haciendo la información de las mascotas accesible para todos los que la necesitan, cuando la necesitan."
+      "items": {
+        "petWelfare": {
+          "title": "Compromiso con el bienestar animal",
+          "description": "Creemos que todas las mascotas merecen estar protegidas y bien cuidadas."
+        },
+        "innovation": {
+          "title": "Innovación tecnológica",
+          "description": "Utilizamos la tecnología para crear soluciones accesibles, eficientes y sostenibles."
+        },
+        "ecological": {
+          "title": "Responsabilidad ecológica",
+          "description": "Promovemos alternativas que reduzcan la contaminación y el desperdicio de materiales."
+        },
+        "social": {
+          "title": "Impacto social",
+          "description": "Apoyamos a fundaciones mediante la donación de tags NFC y QR para facilitar la adopción responsable."
+        },
+        "security": {
+          "title": "Conexión y seguridad",
+          "description": "Buscamos fortalecer el vínculo entre las mascotas y sus familias mediante un sistema de identificación confiable y moderno."
+        }
       }
     },
     "contact": {
       "title": "Contáctanos",
-      "subtitle": "¿Tienes preguntas o comentarios? ¡Nos encantaría escucharte!",
+      "description": "En HuellaID, cada identificación es un paso más hacia un mundo donde ninguna mascota esté sola y cada familia tenga la tranquilidad de poder encontrarla en caso de extravío. ¡Únete a nuestra misión y ayúdanos a marcar la diferencia!",
       "form": {
-        "name": "Nombre",
-        "namePlaceholder": "Tu nombre",
-        "email": "Correo electrónico",
-        "emailPlaceholder": "Tu dirección de correo electrónico",
-        "message": "Mensaje",
-        "messagePlaceholder": "¿Cómo podemos ayudarte?",
-        "button": "Enviar Mensaje"
+        "name": {
+          "label": "Nombre",
+          "placeholder": "Tu nombre"
+        },
+        "email": {
+          "label": "Correo electrónico",
+          "placeholder": "Tu correo electrónico"
+        },
+        "message": {
+          "label": "Mensaje",
+          "placeholder": "¿Cómo podemos ayudarte?"
+        },
+        "submit": "Enviar Mensaje"
       }
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "Nuestros Servicios",
+      "description": "Soluciones innovadoras para la identificación y protección de tu mascota"
+    },
+    "items": {
+      "nfc": {
+        "title": "Tags NFC",
+        "description": "Identificación inteligente y duradera para tu mascota con tecnología NFC"
+      },
+      "qr": {
+        "title": "Códigos QR",
+        "description": "Acceso rápido a la información de tu mascota mediante códigos QR personalizados"
+      },
+      "profile": {
+        "title": "Perfil Digital",
+        "description": "Gestión completa del historial y datos importantes de tu mascota en la nube"
+      },
+      "support": {
+        "title": "Soporte 24/7",
+        "description": "Asistencia permanente para ayudarte a encontrar tu mascota en caso de pérdida"
+      }
+    },
+    "benefits": {
+      "title": "¿Por qué elegirnos?",
+      "items": {
+        "technology": {
+          "title": "Tecnología Avanzada",
+          "description": "Utilizamos las últimas tecnologías en identificación digital para mantener segura a tu mascota"
+        },
+        "eco": {
+          "title": "Ecológico",
+          "description": "Nuestras soluciones son duraderas y amigables con el medio ambiente"
+        },
+        "social": {
+          "title": "Impacto Social",
+          "description": "Colaboramos con fundaciones donando tags para mascotas en adopción"
+        }
+      }
+    },
+    "adoption": {
+      "title": "Proceso de Adopción",
+      "description": "Apoyamos a fundaciones de adopción proporcionando tags gratuitos para cada mascota adoptada, asegurando que desde el primer día tengan una identificación segura y moderna.",
+      "cta": "Conoce más sobre nuestro programa"
     }
   }
 }
