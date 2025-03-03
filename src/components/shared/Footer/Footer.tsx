@@ -42,13 +42,13 @@ export default function Footer() {
             <h3 className="text-xl font-semibold">{t("legal")}</h3>
             <div className="flex flex-col space-y-2">
               <Link
-                href="/terms"
+                href="/terms-and-conditions"
                 className="text-gray-300 hover:text-white transition"
               >
                 {t("terms")}
               </Link>
               <Link
-                href="/privacy"
+                href="/privacy-policy"
                 className="text-gray-300 hover:text-white transition"
               >
                 {t("privacy")}

@@ -60,10 +60,13 @@
     "conditions": "Condiciones Médicas"
   },
   "navigation": {
+    "home": "Inicio",
     "about": "Sobre Nosotros",
     "contact": "Contacto",
     "logo": "HuellaID",
-    "services": "Servicios"
+    "services": "Servicios",
+    "terms": "Términos y Condiciones",
+    "privacy": "Política de Privacidad"
   },
   "footer": {
     "title": "HuellaID",
@@ -380,6 +383,76 @@
       "title": "Proceso de Adopción",
       "description": "Apoyamos a fundaciones de adopción proporcionando tags gratuitos para cada mascota adoptada, asegurando que desde el primer día tengan una identificación segura y moderna.",
       "cta": "Conoce más sobre nuestro programa"
+    }
+  },
+  "terms": {
+    "title": "Términos y Condiciones",
+    "acceptance": {
+      "title": "Aceptación de los Términos",
+      "content": "Al acceder y utilizar los servicios de HuellaID, aceptas estar legalmente vinculado por estos términos y condiciones. Si no estás de acuerdo con alguna parte de estos términos, no podrás utilizar nuestros servicios."
+    },
+    "services": {
+      "title": "Nuestros Servicios",
+      "content": "HuellaID proporciona un sistema de identificación y localización de mascotas mediante tags personalizados y una plataforma digital. Nos reservamos el derecho de modificar, suspender o discontinuar cualquier aspecto del servicio en cualquier momento."
+    },
+    "userObligations": {
+      "title": "Obligaciones del Usuario",
+      "item1": "Proporcionar información precisa y actualizada sobre ti y tu mascota",
+      "item2": "Mantener la seguridad de tu cuenta y notificar cualquier uso no autorizado",
+      "item3": "Usar los servicios de manera ética y legal, respetando la privacidad de otros usuarios"
+    },
+    "limitations": {
+      "title": "Limitaciones de Responsabilidad",
+      "content": "HuellaID no garantiza la recuperación de mascotas perdidas y no será responsable por daños directos, indirectos, incidentales o consecuentes que surjan del uso de nuestros servicios."
+    },
+    "modifications": {
+      "title": "Modificaciones a los Términos",
+      "content": "Nos reservamos el derecho de modificar estos términos en cualquier momento. Los cambios entrarán en vigor inmediatamente después de su publicación en nuestra plataforma."
+    },
+    "contact": {
+      "title": "Contacto",
+      "content": "Si tienes preguntas sobre estos términos, contáctanos a través de nuestros canales oficiales de comunicación."
+    }
+  },
+  "privacy": {
+    "title": "Política de Privacidad",
+    "introduction": {
+      "title": "Introducción",
+      "content": "En HuellaID, nos tomamos muy en serio la privacidad de nuestros usuarios. Esta política describe cómo recopilamos, usamos y protegemos tu información personal."
+    },
+    "dataCollection": {
+      "title": "Información que Recopilamos",
+      "item1": "Información de contacto (nombre, correo electrónico, teléfono)",
+      "item2": "Información de la mascota (nombre, especie, raza, foto)",
+      "item3": "Información médica de la mascota",
+      "item4": "Ubicación cuando se reporta una mascota perdida"
+    },
+    "dataUse": {
+      "title": "Uso de la Información",
+      "content": "Utilizamos tu información para proporcionar nuestros servicios, mejorar la experiencia del usuario, y facilitar la reunión de mascotas perdidas con sus dueños."
+    },
+    "dataSecurity": {
+      "title": "Seguridad de Datos",
+      "content": "Implementamos medidas de seguridad técnicas y organizativas para proteger tu información personal contra acceso no autorizado, pérdida o alteración."
+    },
+    "cookies": {
+      "title": "Uso de Cookies",
+      "content": "Utilizamos cookies y tecnologías similares para mejorar la experiencia del usuario y analizar el uso de nuestra plataforma."
+    },
+    "thirdParty": {
+      "title": "Compartir con Terceros",
+      "content": "No vendemos tu información personal. Solo compartimos datos con terceros cuando es necesario para proporcionar nuestros servicios o cuando la ley lo requiere."
+    },
+    "userRights": {
+      "title": "Tus Derechos",
+      "item1": "Acceder a tu información personal",
+      "item2": "Corregir información inexacta",
+      "item3": "Solicitar la eliminación de tus datos",
+      "item4": "Oponerte al procesamiento de tu información"
+    },
+    "contact": {
+      "title": "Contacto sobre Privacidad",
+      "content": "Para cualquier consulta sobre tu privacidad o tus derechos, contáctanos a través de nuestros canales oficiales."
     }
   }
 }
