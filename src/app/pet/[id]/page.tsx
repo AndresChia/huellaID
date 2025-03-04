@@ -63,8 +63,9 @@ export default async function PetPage({ params }: any) {
     return (
       <>
         <ModalActivation isOpen={pet.activate} />
-        <main className="container mx-auto px-4 py-6">
-          <div className="bg-white rounded-lg shadow-sm p-6">
+
+        <main className="flex min-h-screen flex-col items-center bg-primary-light pb-4">
+          <div className="bg-white rounded-lg shadow-sm p-6 w-full max-w-3xl">
             <PetHeader {...headerProps} />
             <div className="grid grid-cols-1 gap-8 mt-8">
               <div className="lg:col-span-1">

@@ -13,7 +13,7 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full bg-primary text-white">
+    <header className="w-full bg-primary-light text-white">
       <nav className="container mx-auto px-4 py-4 relative">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div className="flex items-center justify-between">
@@ -22,7 +22,7 @@ const Header = () => {
             </Link>
             <button
               onClick={toggleMenu}
-              className="md:hidden focus:outline-none"
+              className="md:hidden focus:outline-none text-primary-dark"
               aria-label="Toggle menu"
             >
               <svg
@@ -50,7 +50,7 @@ const Header = () => {
               isMenuOpen ? "flex" : "hidden"
             } md:flex flex-col md:flex-row md:space-x-8 space-y-2 md:space-y-0
             absolute md:relative left-0 right-0 top-full md:top-auto
-            bg-primary md:bg-transparent
+            bg-primary-light md:bg-transparent
             shadow-lg md:shadow-none
             p-4 md:p-0
             z-50
@@ -60,7 +60,7 @@ const Header = () => {
             <li>
               <Link
                 href="/"
-                className="text-gray-300 hover:text-white transition block"
+                className="text-tertiary-dark hover:text-quaternary-dark transition block"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t("common.home")}
@@ -69,7 +69,7 @@ const Header = () => {
             <li>
               <Link
                 href="/about"
-                className="text-gray-300 hover:text-white transition block"
+                className="text-tertiary-dark hover:text-quaternary-dark transition block"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t("navigation.about")}
@@ -78,7 +78,7 @@ const Header = () => {
             <li>
               <Link
                 href="/services"
-                className="text-gray-300 hover:text-white transition block"
+                className="text-tertiary-dark hover:text-quaternary-dark transition block"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t("navigation.services")}
@@ -87,7 +87,7 @@ const Header = () => {
             <li>
               <Link
                 href="/contact"
-                className="text-gray-300 hover:text-white transition block"
+                className="text-tertiary-dark hover:text-quaternary-dark transition block"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t("navigation.contact")}

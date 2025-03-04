@@ -1,14 +1,24 @@
 export const theme = {
   colors: {
     primary: {
-      DEFAULT: "#634AFF",
+      DEFAULT: "#563a98",
       light: "#EFEDFF",
-      dark: "#4A35CC",
+      dark: "#42267e",
     },
     secondary: {
-      DEFAULT: "#FF6B5B",
-      light: "#FF8D82",
-      dark: "#E54B3B",
+      DEFAULT: "#dc8db3",
+      light: "#e5a5c4",
+      dark: "#c57599",
+    },
+    tertiary: {
+      DEFAULT: "#8255a1",
+      light: "#9666b5",
+      dark: "#6e448c",
+    },
+    quaternary: {
+      DEFAULT: "#af71aa",
+      light: "#bf89bb",
+      dark: "#955c90",
     },
     dark: {
       DEFAULT: "#242424",

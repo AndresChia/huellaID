@@ -23,15 +23,15 @@ export default function PetHeader({ name, species, photo }: PetHeaderProps) {
   return (
     <div className="flex flex-col gap-4">
       <div>
-        <p className="text-gray-600">{t(species)}</p>
-        <h1 className="text-3xl font-bold text-primary">{name}</h1>
+        <p className="text-gray-600 capitalize">{t(species)}</p>
+        <h1 className="text-3xl font-bold text-primary capitalize">{name}</h1>
       </div>
       <div className="w-full h-48 md:h-96 bg-primary/10 rounded-lg overflow-hidden flex items-center justify-center">
         <Image
           src={imgSrc}
           alt={name}
           width={400}
-          height={200}
+          height={400}
           className="w-full h-full object-cover md:object-contain rounded-lg"
           onError={() =>
             setImgSrc(defaultImages[species as keyof typeof defaultImages])

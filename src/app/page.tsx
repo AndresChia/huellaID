@@ -25,7 +25,7 @@ export default function Home() {
                 <div className="flex gap-4">
                   <Link
                     href="/pet/register"
-                    className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors"
+                    className="bg-secondary-dark text-white px-6 py-3 rounded-lg hover:bg-quaternary-dark transition-colors"
                   >
                     {t("actions.registerPet")}
                   </Link>
