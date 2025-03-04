@@ -6,7 +6,8 @@ import { getLocale, getMessages } from "next-intl/server";
 import Header from "@/components/shared/Header/Header";
 import Footer from "@/components/shared/Footer/Footer";
 import MUIThemeProvider from "@/components/providers/MUIThemeProvider";
-
+import { AuthProvider } from "@/components/providers/AuthProvider";
+import HeaderAdmin from "@/components/shared/Header/HeaderAdmin";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -91,17 +92,21 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <MUIThemeProvider>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} font-sans min-h-screen flex flex-col`}
+      >
         <NextIntlClientProvider messages={messages}>
-          <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gray-50`}
-          >
-            <Header />
-            {children}
-            <Footer />
-          </body>
+          <MUIThemeProvider>
+            <AuthProvider>
+              <Header />
+              <HeaderAdmin />
+
+              <main className="flex-grow bg-white">{children}</main>
+              <Footer />
+            </AuthProvider>
+          </MUIThemeProvider>
         </NextIntlClientProvider>
-      </MUIThemeProvider>
+      </body>
     </html>
   );
 }

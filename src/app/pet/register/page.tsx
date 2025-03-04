@@ -16,6 +16,7 @@ import {
 } from "./components";
 
 const initialValues: RegisterPetForm = {
+  id: "",
   petName: "",
   species: "",
   breed: "",
@@ -44,6 +45,7 @@ const initialValues: RegisterPetForm = {
   requestTag: false,
   tagType: "",
   activate: false,
+  disabled: false,
 };
 
 export default function PetRegister() {

@@ -484,5 +484,36 @@
       "title": "Contacto sobre Privacidad",
       "content": "Para cualquier consulta sobre tu privacidad o tus derechos, contáctanos a través de nuestros canales oficiales."
     }
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Panel de Administración",
+      "welcome": "Bienvenido al Panel de Administración",
+      "description": "Aquí podrás gestionar todos los aspectos de la plataforma."
+    },
+    "pets": {
+      "table": {
+        "name": "Nombre",
+        "species": "Especie",
+        "breed": "Raza",
+        "age": "Edad",
+        "owner": "Dueño",
+        "phone": "Teléfono",
+        "actions": "Acciones"
+      },
+      "actions": {
+        "view": "Ver",
+        "edit": "Editar",
+        "delete": "Eliminar",
+        "back": "Volver"
+      },
+      "details": {
+        "title": "Detalles de la Mascota",
+        "edit": "Editar Mascota",
+        "add": "Agregar Nueva Mascota",
+        "update": "Actualizar Mascota",
+        "save": "Guardar Mascota"
+      }
+    }
   }
 }

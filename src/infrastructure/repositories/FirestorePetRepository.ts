@@ -36,7 +36,7 @@ export class FirestorePetRepository implements PetRepository {
 
     */
 
-    await setDoc(newPetRef, pet);
+    await setDoc(newPetRef, { ...pet, id: petId });
     return petId;
   }
 

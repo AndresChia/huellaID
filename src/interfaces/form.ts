@@ -1,4 +1,5 @@
 export interface RegisterPetForm {
+  id: string;
   petName: string;
   species: string;
   breed: string;
@@ -27,4 +28,5 @@ export interface RegisterPetForm {
   requestTag: boolean;
   tagType: string;
   activate: boolean;
+  disabled: boolean;
 }
