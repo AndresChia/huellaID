@@ -8,11 +8,11 @@ export interface RegisterPetForm {
   photo: string;
   requireMedicalInfo: boolean;
   showAllergies: boolean;
-  allergies: string;
+  allergies: string[];
   showMedications: boolean;
-  medications: string;
+  medications: string[];
   showConditions: boolean;
-  conditions: string;
+  conditions: string[];
   showVaccinations: boolean;
   vaccinations: string[];
   requireVeterinaryInfo: boolean;

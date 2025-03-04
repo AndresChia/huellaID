@@ -40,7 +40,8 @@
     "addNewEntry": "Agregar Entrada",
     "viewMap": "Ver en Mapa",
     "registerPet": "Registrar Mascota",
-    "searchPet": "Buscar Mascota"
+    "searchPet": "Buscar Mascota",
+    "foundPetMessage": "¡Encontré a tu mascota! Mi ubicación actual: {location}"
   },
   "medical": {
     "history": "Historial Médico",
@@ -154,7 +155,32 @@
       "selectType": "Seleccione el tipo de etiqueta que prefiere",
       "basic": "Etiqueta Básica",
       "premium": "Etiqueta Premium",
-      "deluxe": "Etiqueta Deluxe"
+      "deluxe": "Etiqueta Deluxe",
+      "features": {
+        "basic": {
+          "nfcTag": "Placa NFC básica",
+          "profile": "Perfil digital básico",
+          "support": "Soporte por correo electrónico",
+          "notifications": "Notificaciones por correo electrónico",
+          "registration": "Registro de mascota"
+        },
+        "premium": {
+          "nfcTag": "Placa NFC resistente al agua",
+          "profile": "Perfil digital completo",
+          "support": "Soporte prioritario por correo y WhatsApp",
+          "notifications": "Notificaciones por correo y SMS",
+          "medical": "Historial médico digital"
+        },
+        "deluxe": {
+          "nfcTag": "Placa NFC premium resistente al agua",
+          "profile": "Perfil digital premium personalizado",
+          "support": "Soporte VIP 24/7 por todos los canales",
+          "notifications": "Notificaciones instantáneas multicanal",
+          "medical": "Historial médico digital avanzado",
+          "design": "Diseño de placa personalizado",
+          "warranty": "Garantía de reemplazo gratuito"
+        }
+      }
     },
     "placeholders": {
       "petName": "Ingrese el nombre de su mascota",
@@ -178,7 +204,10 @@
     "buttons": {
       "saveAndRequest": "Guardar y Solicitar Tag",
       "addMedicalInfo": "Agregar Información Médica",
-      "addVaccination": "Agregar Vacuna"
+      "addVaccination": "Agregar Vacuna",
+      "addAllergy": "Agregar Alergia",
+      "addMedication": "Agregar Medicamento",
+      "addCondition": "Agregar Condición"
     }
   },
   "species": {
@@ -201,6 +230,7 @@
       "other": "Otro"
     },
     "cat": {
+      "creole": "Criollo",
       "persian": "Persian",
       "maineCoon": "Maine Coon",
       "siamese": "Siamese",

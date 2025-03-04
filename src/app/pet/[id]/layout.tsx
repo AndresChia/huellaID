@@ -1,14 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Metadata } from "next";
 import { FirestorePetRepository } from "@/infrastructure/repositories/FirestorePetRepository";
 
-interface PetLayoutProps {
-  children: React.ReactNode;
-  params: { id: string };
-}
-
-export async function generateMetadata({
-  params,
-}: PetLayoutProps): Promise<Metadata> {
+export async function generateMetadata({ params }: any): Promise<Metadata> {
   try {
     const { id } = await params;
     const petRepository = new FirestorePetRepository();
@@ -37,6 +31,6 @@ export async function generateMetadata({
   }
 }
 
-export default function PetLayout({ children }: PetLayoutProps) {
+export default function PetLayout({ children }: any) {
   return <>{children}</>;
 }

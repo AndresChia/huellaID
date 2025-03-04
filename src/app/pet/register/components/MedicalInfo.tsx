@@ -5,12 +5,11 @@ import {
   FormLabel,
   Stack,
   Switch,
-  TextareaAutosize,
   TextField,
   Typography,
 } from "@mui/material";
 import { Field, FieldProps } from "formik";
-import { inputStyles, textAreaStyles } from "../styles";
+import { inputStyles } from "../styles";
 import { useTranslations } from "next-intl";
 
 export const MedicalInfo = () => {
@@ -51,18 +50,58 @@ export const MedicalInfo = () => {
                   {({ field: { value: showAllergies } }: FieldProps<boolean>) =>
                     showAllergies && (
                       <Field name="allergies">
-                        {({ field }: FieldProps<string>) => (
-                          <FormControl fullWidth sx={{ mt: 2 }}>
-                            <TextareaAutosize
-                              {...field}
-                              minRows={3}
-                              placeholder={p("placeholders.allergies")}
-                              style={{
-                                width: "100%",
-                                padding: "8px",
-                                ...textAreaStyles,
-                              }}
-                            />
+                        {({ field, form }: FieldProps) => (
+                          <FormControl fullWidth>
+                            <Stack spacing={2}>
+                              {(field.value as string[]).map(
+                                (allergy: string, index: number) => (
+                                  <Box key={index} display="flex" gap={2}>
+                                    <TextField
+                                      value={allergy}
+                                      onChange={(e) => {
+                                        const newAllergies = [
+                                          ...(field.value as string[]),
+                                        ];
+                                        newAllergies[index] = e.target.value;
+                                        form.setFieldValue(
+                                          "allergies",
+                                          newAllergies
+                                        );
+                                      }}
+                                      fullWidth
+                                      placeholder={p("placeholders.allergies")}
+                                      sx={inputStyles}
+                                    />
+                                    <Button
+                                      variant="outlined"
+                                      color="error"
+                                      onClick={() => {
+                                        const newAllergies = (
+                                          field.value as string[]
+                                        ).filter((_, i) => i !== index);
+                                        form.setFieldValue(
+                                          "allergies",
+                                          newAllergies
+                                        );
+                                      }}
+                                    >
+                                      {c("remove")}
+                                    </Button>
+                                  </Box>
+                                )
+                              )}
+                              <Button
+                                variant="outlined"
+                                onClick={() => {
+                                  form.setFieldValue("allergies", [
+                                    ...(field.value as string[]),
+                                    "",
+                                  ]);
+                                }}
+                              >
+                                {p("buttons.addAllergy")}
+                              </Button>
+                            </Stack>
                           </FormControl>
                         )}
                       </Field>
@@ -88,18 +127,60 @@ export const MedicalInfo = () => {
                   }: FieldProps<boolean>) =>
                     showMedications && (
                       <Field name="medications">
-                        {({ field }: FieldProps<string>) => (
-                          <FormControl fullWidth sx={{ mt: 2 }}>
-                            <TextareaAutosize
-                              {...field}
-                              minRows={3}
-                              placeholder={p("placeholders.medications")}
-                              style={{
-                                width: "100%",
-                                padding: "8px",
-                                ...textAreaStyles,
-                              }}
-                            />
+                        {({ field, form }: FieldProps) => (
+                          <FormControl fullWidth>
+                            <Stack spacing={2}>
+                              {(field.value as string[]).map(
+                                (medication: string, index: number) => (
+                                  <Box key={index} display="flex" gap={2}>
+                                    <TextField
+                                      value={medication}
+                                      onChange={(e) => {
+                                        const newMedications = [
+                                          ...(field.value as string[]),
+                                        ];
+                                        newMedications[index] = e.target.value;
+                                        form.setFieldValue(
+                                          "medications",
+                                          newMedications
+                                        );
+                                      }}
+                                      fullWidth
+                                      placeholder={p(
+                                        "placeholders.medications"
+                                      )}
+                                      sx={inputStyles}
+                                    />
+                                    <Button
+                                      variant="outlined"
+                                      color="error"
+                                      onClick={() => {
+                                        const newMedications = (
+                                          field.value as string[]
+                                        ).filter((_, i) => i !== index);
+                                        form.setFieldValue(
+                                          "medications",
+                                          newMedications
+                                        );
+                                      }}
+                                    >
+                                      {c("remove")}
+                                    </Button>
+                                  </Box>
+                                )
+                              )}
+                              <Button
+                                variant="outlined"
+                                onClick={() => {
+                                  form.setFieldValue("medications", [
+                                    ...(field.value as string[]),
+                                    "",
+                                  ]);
+                                }}
+                              >
+                                {p("buttons.addMedication")}
+                              </Button>
+                            </Stack>
                           </FormControl>
                         )}
                       </Field>
@@ -125,18 +206,58 @@ export const MedicalInfo = () => {
                   }: FieldProps<boolean>) =>
                     showConditions && (
                       <Field name="conditions">
-                        {({ field }: FieldProps<string>) => (
-                          <FormControl fullWidth sx={{ mt: 2 }}>
-                            <TextareaAutosize
-                              {...field}
-                              minRows={3}
-                              placeholder={p("placeholders.conditions")}
-                              style={{
-                                width: "100%",
-                                padding: "8px",
-                                ...textAreaStyles,
-                              }}
-                            />
+                        {({ field, form }: FieldProps) => (
+                          <FormControl fullWidth>
+                            <Stack spacing={2}>
+                              {(field.value as string[]).map(
+                                (condition: string, index: number) => (
+                                  <Box key={index} display="flex" gap={2}>
+                                    <TextField
+                                      value={condition}
+                                      onChange={(e) => {
+                                        const newConditions = [
+                                          ...(field.value as string[]),
+                                        ];
+                                        newConditions[index] = e.target.value;
+                                        form.setFieldValue(
+                                          "conditions",
+                                          newConditions
+                                        );
+                                      }}
+                                      fullWidth
+                                      placeholder={p("placeholders.conditions")}
+                                      sx={inputStyles}
+                                    />
+                                    <Button
+                                      variant="outlined"
+                                      color="error"
+                                      onClick={() => {
+                                        const newConditions = (
+                                          field.value as string[]
+                                        ).filter((_, i) => i !== index);
+                                        form.setFieldValue(
+                                          "conditions",
+                                          newConditions
+                                        );
+                                      }}
+                                    >
+                                      {c("remove")}
+                                    </Button>
+                                  </Box>
+                                )
+                              )}
+                              <Button
+                                variant="outlined"
+                                onClick={() => {
+                                  form.setFieldValue("conditions", [
+                                    ...(field.value as string[]),
+                                    "",
+                                  ]);
+                                }}
+                              >
+                                {p("buttons.addCondition")}
+                              </Button>
+                            </Stack>
                           </FormControl>
                         )}
                       </Field>

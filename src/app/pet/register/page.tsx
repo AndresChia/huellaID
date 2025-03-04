@@ -25,11 +25,11 @@ const initialValues: RegisterPetForm = {
   photo: "",
   requireMedicalInfo: false,
   showAllergies: false,
-  allergies: "",
+  allergies: [],
   showMedications: false,
-  medications: "",
+  medications: [],
   showConditions: false,
-  conditions: "",
+  conditions: [],
   showVaccinations: false,
   vaccinations: [],
   requireVeterinaryInfo: false,
@@ -63,17 +63,17 @@ export default function PetRegister() {
     colorMarkings: Yup.string().required(v("colorMarkings")),
     photo: Yup.mixed().optional().nullable(),
     requireMedicalInfo: Yup.boolean(),
-    allergies: Yup.string().when(["requireMedicalInfo", "showAllergies"], {
+    allergies: Yup.array().when(["requireMedicalInfo", "showAllergies"], {
       is: (requireMedicalInfo: boolean, showAllergies: boolean) =>
         requireMedicalInfo && showAllergies,
       then: (schema) => schema.required(v("allergies")),
     }),
-    medications: Yup.string().when(["requireMedicalInfo", "showMedications"], {
+    medications: Yup.array().when(["requireMedicalInfo", "showMedications"], {
       is: (requireMedicalInfo: boolean, showMedications: boolean) =>
         requireMedicalInfo && showMedications,
       then: (schema) => schema.required(v("medications")),
     }),
-    conditions: Yup.string().when(["requireMedicalInfo", "showConditions"], {
+    conditions: Yup.array().when(["requireMedicalInfo", "showConditions"], {
       is: (requireMedicalInfo: boolean, showConditions: boolean) =>
         requireMedicalInfo && showConditions,
       then: (schema) => schema.required(v("conditions")),
@@ -112,7 +112,6 @@ export default function PetRegister() {
     values: RegisterPetForm,
     { setSubmitting, resetForm }: FormikHelpers<RegisterPetForm>
   ) => {
-    debugger;
     try {
       const petRepository = new FirestorePetRepository();
       const petId = await petRepository.savePet(values);
@@ -139,7 +138,7 @@ export default function PetRegister() {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ isSubmitting, errors }) => (
+        {({ isSubmitting }) => (
           <Form>
             <Stack spacing={3}>
               <Box sx={{ borderTop: 1, pt: 3 }}>
@@ -172,7 +171,6 @@ export default function PetRegister() {
                 </Button>
               </Stack>
             </Stack>
-            <h1 className="text-red-500">{JSON.stringify(errors)}</h1>
           </Form>
         )}
       </Formik>

@@ -16,6 +16,7 @@ export const BREEDS = {
     "other",
   ],
   cat: [
+    "creole",
     "persian",
     "maineCoon",
     "siamese",

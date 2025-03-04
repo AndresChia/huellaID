@@ -3,19 +3,58 @@ import {
   FormControl,
   FormHelperText,
   FormLabel,
-  MenuItem,
-  Select,
   Stack,
   Switch,
   Typography,
+  Paper,
+  Grid,
 } from "@mui/material";
 import { Field, FieldProps } from "formik";
-import { RegisterPetForm } from "@/interfaces/form";
-import { inputStyles } from "../styles";
 import { useTranslations } from "next-intl";
 
 export const TagRequest = () => {
   const p = useTranslations("petRegister");
+
+  const tagTypes = [
+    {
+      value: "basic",
+      label: p("tagRequest.basic"),
+      price: "29.900",
+      features: [
+        p("tagRequest.features.basic.nfcTag"),
+        p("tagRequest.features.basic.profile"),
+        p("tagRequest.features.basic.support"),
+        p("tagRequest.features.basic.notifications"),
+        p("tagRequest.features.basic.registration"),
+      ],
+    },
+    {
+      value: "premium",
+      label: p("tagRequest.premium"),
+      price: "39.900",
+      features: [
+        p("tagRequest.features.premium.nfcTag"),
+        p("tagRequest.features.premium.profile"),
+        p("tagRequest.features.premium.support"),
+        p("tagRequest.features.premium.notifications"),
+        p("tagRequest.features.premium.medical"),
+      ],
+    },
+    {
+      value: "deluxe",
+      label: p("tagRequest.deluxe"),
+      price: "49.900",
+      features: [
+        p("tagRequest.features.deluxe.nfcTag"),
+        p("tagRequest.features.deluxe.profile"),
+        p("tagRequest.features.deluxe.support"),
+        p("tagRequest.features.deluxe.notifications"),
+        p("tagRequest.features.deluxe.medical"),
+        p("tagRequest.features.deluxe.design"),
+        p("tagRequest.features.deluxe.warranty"),
+      ],
+    },
+  ];
 
   return (
     <Box>
@@ -43,29 +82,56 @@ export const TagRequest = () => {
             <Stack spacing={3}>
               <Field name="tagType">
                 {({
-                  field: { onChange, onBlur, name, value },
+                  field: { onChange, name, value: selectedType },
                   form: { touched, errors },
-                }: FieldProps<RegisterPetForm>) => (
+                }: FieldProps<string>) => (
                   <FormControl error={!!(touched.tagType && errors.tagType)}>
                     <FormLabel>{p("tagRequest.type")}</FormLabel>
-                    <Select
-                      name={name}
-                      onChange={onChange}
-                      onBlur={onBlur}
-                      value={value}
-                      fullWidth
-                      displayEmpty
-                      sx={inputStyles}
-                    >
-                      <MenuItem value="">{p("tagRequest.selectType")}</MenuItem>
-                      <MenuItem value="basic">{p("tagRequest.basic")}</MenuItem>
-                      <MenuItem value="premium">
-                        {p("tagRequest.premium")}
-                      </MenuItem>
-                      <MenuItem value="deluxe">
-                        {p("tagRequest.deluxe")}
-                      </MenuItem>
-                    </Select>
+                    <Grid container spacing={2} sx={{ mt: 1 }}>
+                      {tagTypes.map((type) => (
+                        <Grid item xs={12} md={4} key={type.value}>
+                          <Paper
+                            elevation={selectedType === type.value ? 3 : 1}
+                            sx={{
+                              p: 2,
+                              cursor: "pointer",
+                              border: selectedType === type.value ? 2 : 1,
+                              borderColor:
+                                selectedType === type.value
+                                  ? "primary.main"
+                                  : "grey.300",
+                              "&:hover": {
+                                borderColor: "primary.main",
+                              },
+                              height: "100%",
+                              display: "flex",
+                              flexDirection: "column",
+                            }}
+                            onClick={() =>
+                              onChange({ target: { name, value: type.value } })
+                            }
+                          >
+                            <Typography variant="h6" fontWeight="bold" mb={1}>
+                              {type.label}
+                            </Typography>
+                            <Typography variant="h5" color="primary" mb={2}>
+                              ${type.price} COP
+                            </Typography>
+                            <Stack spacing={1} sx={{ flexGrow: 1 }}>
+                              {type.features.map((feature, index) => (
+                                <Typography
+                                  key={index}
+                                  variant="body2"
+                                  color="text.secondary"
+                                >
+                                  • {feature}
+                                </Typography>
+                              ))}
+                            </Stack>
+                          </Paper>
+                        </Grid>
+                      ))}
+                    </Grid>
                     {touched.tagType && errors.tagType && (
                       <FormHelperText error>
                         {errors.tagType ? String(errors.tagType) : ""}

@@ -24,12 +24,13 @@ export default async function PetPage({ params }: any) {
       weight: pet.weight,
       breed: pet.breed,
       colorMarkings: pet.colorMarkings,
+      species: pet.species,
     };
 
     const medicalProps = {
-      allergies: pet.showAllergies ? [pet.allergies || ""] : [],
-      medications: pet.showMedications ? [pet.medications || ""] : [],
-      conditions: pet.showConditions ? [pet.conditions || ""] : [],
+      allergies: pet.showAllergies ? pet.allergies : [],
+      medications: pet.showMedications ? pet.medications : [],
+      conditions: pet.showConditions ? pet.conditions : [],
       vaccinations: pet.vaccinations || [],
       requireVeterinaryInfo: pet.requireVeterinaryInfo,
       showAllergies: pet.showAllergies,
@@ -43,16 +44,22 @@ export default async function PetPage({ params }: any) {
       },
     };
 
+    const actionButtonsProps = {
+      phone: pet.phoneNumber,
+      address: pet.address,
+      countryCode: pet.countryCode,
+    };
+
     return (
       <>
         <ModalActivation isOpen={pet.activate} />
         <main className="container mx-auto px-4 py-6">
           <div className="bg-white rounded-lg shadow-sm p-6">
             <PetHeader {...headerProps} />
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
+            <div className="grid grid-cols-1 gap-8 mt-8">
               <div className="lg:col-span-1">
                 <PetInfo {...infoProps} />
-                <ActionButtons />
+                <ActionButtons {...actionButtonsProps} />
               </div>
               <div className="lg:col-span-2">
                 <MedicalHistory {...medicalProps} />

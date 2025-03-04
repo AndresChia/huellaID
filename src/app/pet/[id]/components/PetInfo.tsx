@@ -11,6 +11,7 @@ interface PetInfoProps {
   weight: string;
   breed: string;
   colorMarkings: string;
+  species: string;
 }
 
 export default function PetInfo({
@@ -18,8 +19,11 @@ export default function PetInfo({
   weight,
   breed,
   colorMarkings,
+  species,
 }: PetInfoProps) {
   const t = useTranslations("common");
+  const catBreeds = useTranslations("breeds.cat");
+  const dogBreeds = useTranslations("breeds.dog");
 
   return (
     <div className="space-y-4 mb-6">
@@ -51,7 +55,9 @@ export default function PetInfo({
         </div>
         <div>
           <p className="text-sm text-black/60">{t("breed")}</p>
-          <p className="font-medium text-black">{breed}</p>
+          <p className="font-medium text-black">
+            {species === "cat" ? catBreeds(breed) : dogBreeds(breed)}
+          </p>
         </div>
       </div>
 
@@ -61,7 +67,7 @@ export default function PetInfo({
         </div>
         <div>
           <p className="text-sm text-black/60">{t("colorMarkings")}</p>
-          <p className="font-medium text-black">{colorMarkings}</p>
+          <p className="font-medium text-black capitalize">{colorMarkings}</p>
         </div>
       </div>
     </div>
