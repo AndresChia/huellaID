@@ -50,6 +50,16 @@ export default async function PetPage({ params }: any) {
       countryCode: pet.countryCode,
     };
 
+    const shouldShowMedicalHistory = (pet: any) => {
+      return (
+        (pet.showAllergies && pet.allergies?.length > 0) ||
+        (pet.showMedications && pet.medications?.length > 0) ||
+        (pet.showConditions && pet.conditions?.length > 0) ||
+        (pet.showVaccinations && pet.vaccinations?.length > 0) ||
+        (pet.requireVeterinaryInfo && pet.veterinaryName)
+      );
+    };
+
     return (
       <>
         <ModalActivation isOpen={pet.activate} />
@@ -62,7 +72,9 @@ export default async function PetPage({ params }: any) {
                 <ActionButtons {...actionButtonsProps} />
               </div>
               <div className="lg:col-span-2">
-                <MedicalHistory {...medicalProps} />
+                {shouldShowMedicalHistory(pet) && (
+                  <MedicalHistory {...medicalProps} />
+                )}
               </div>
             </div>
           </div>
