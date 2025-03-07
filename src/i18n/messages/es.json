@@ -489,7 +489,9 @@
     "dashboard": {
       "title": "Panel de Administración",
       "welcome": "Bienvenido al Panel de Administración",
-      "description": "Aquí podrás gestionar todos los aspectos de la plataforma."
+      "description": "Aquí podrás gestionar todos los aspectos de la plataforma.",
+      "sendWhatsapp": "Enviar WhatsApp",
+      "addPet": "Agregar Mascota"
     },
     "pets": {
       "table": {
@@ -512,6 +514,10 @@
         "edit": "Editar Mascota",
         "add": "Agregar Nueva Mascota",
         "update": "Actualizar Mascota",
+        "save": "Guardar Mascota"
+      },
+      "add": {
+        "title": "Agregar Nueva Mascota",
         "save": "Guardar Mascota"
       }
     }

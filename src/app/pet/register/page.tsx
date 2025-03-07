@@ -14,39 +14,7 @@ import {
   VeterinaryInfo,
   TagRequest,
 } from "./components";
-
-const initialValues: RegisterPetForm = {
-  id: "",
-  petName: "",
-  species: "",
-  breed: "",
-  age: "",
-  weight: "",
-  colorMarkings: "",
-  photo: "",
-  requireMedicalInfo: false,
-  showAllergies: false,
-  allergies: [],
-  showMedications: false,
-  medications: [],
-  showConditions: false,
-  conditions: [],
-  showVaccinations: false,
-  vaccinations: [],
-  requireVeterinaryInfo: false,
-  veterinaryName: "",
-  veterinaryPhone: "",
-  veterinaryAddress: "",
-  ownerName: "",
-  countryCode: "+57",
-  phoneNumber: "",
-  email: "",
-  address: "",
-  requestTag: false,
-  tagType: "",
-  activate: false,
-  disabled: false,
-};
+import { defaultPet } from "@/utils/pet";
 
 export default function PetRegister() {
   const c = useTranslations("common");
@@ -136,7 +104,7 @@ export default function PetRegister() {
       </Typography>
 
       <Formik<RegisterPetForm>
-        initialValues={initialValues}
+        initialValues={defaultPet}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >

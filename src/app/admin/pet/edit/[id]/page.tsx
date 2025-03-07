@@ -14,43 +14,12 @@ import {
   Typography,
 } from "@mui/material";
 import { useTranslations } from "next-intl";
-
+import { defaultPet } from "@/utils/pet";
 export default function EditPet({ params }: any) {
   const router = useRouter();
   const t = useTranslations();
   const unwrappedParams: any = use(params);
-  const [formData, setFormData] = useState<RegisterPetForm>({
-    id: "",
-    petName: "",
-    species: "",
-    breed: "",
-    age: "",
-    weight: "",
-    colorMarkings: "",
-    photo: "",
-    requireMedicalInfo: false,
-    showAllergies: false,
-    allergies: [],
-    showMedications: false,
-    medications: [],
-    showConditions: false,
-    conditions: [],
-    showVaccinations: false,
-    vaccinations: [],
-    requireVeterinaryInfo: false,
-    veterinaryName: "",
-    veterinaryPhone: "",
-    veterinaryAddress: "",
-    ownerName: "",
-    countryCode: "",
-    phoneNumber: "",
-    email: "",
-    address: "",
-    requestTag: false,
-    tagType: "",
-    activate: false,
-    disabled: false,
-  });
+  const [formData, setFormData] = useState<RegisterPetForm>(defaultPet);
 
   useEffect(() => {
     const fetchPet = async () => {

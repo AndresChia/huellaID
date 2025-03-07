@@ -8,45 +8,16 @@ import {
   Box,
   Button,
   Container,
-  Grid,
+  Grid2,
   TextField,
   Typography,
 } from "@mui/material";
-
+import { defaultPet } from "@/utils/pet";
+import { useTranslations } from "next-intl";
 export default function AddPet() {
   const router = useRouter();
-  const [formData, setFormData] = useState<RegisterPetForm>({
-    id: "",
-    petName: "",
-    species: "",
-    breed: "",
-    age: "",
-    weight: "",
-    colorMarkings: "",
-    photo: "",
-    requireMedicalInfo: false,
-    showAllergies: false,
-    allergies: [],
-    showMedications: false,
-    medications: [],
-    showConditions: false,
-    conditions: [],
-    showVaccinations: false,
-    vaccinations: [],
-    requireVeterinaryInfo: false,
-    veterinaryName: "",
-    veterinaryPhone: "",
-    veterinaryAddress: "",
-    ownerName: "",
-    countryCode: "",
-    phoneNumber: "",
-    email: "",
-    address: "",
-    requestTag: false,
-    tagType: "",
-    activate: false,
-    disabled: false,
-  });
+  const t = useTranslations();
+  const [formData, setFormData] = useState<RegisterPetForm>(defaultPet);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -70,12 +41,17 @@ export default function AddPet() {
   return (
     <Container maxWidth="sm">
       <Box sx={{ mt: 4, mb: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Agregar Nueva Mascota
+        <Typography
+          variant="h4"
+          component="h1"
+          gutterBottom
+          className="text-primary"
+        >
+          {t("admin.pets.add.title")}
         </Typography>
         <form onSubmit={handleSubmit}>
-          <Grid container spacing={3}>
-            <Grid item xs={12}>
+          <Grid2 container spacing={3}>
+            <Grid2 size={{ xs: 12 }}>
               <TextField
                 fullWidth
                 label="Nombre de la Mascota"
@@ -84,8 +60,8 @@ export default function AddPet() {
                 onChange={handleChange}
                 required
               />
-            </Grid>
-            <Grid item xs={12}>
+            </Grid2>
+            <Grid2 size={{ xs: 12 }}>
               <TextField
                 fullWidth
                 label="Especie"
@@ -94,8 +70,8 @@ export default function AddPet() {
                 onChange={handleChange}
                 required
               />
-            </Grid>
-            <Grid item xs={12}>
+            </Grid2>
+            <Grid2 size={{ xs: 12 }}>
               <TextField
                 fullWidth
                 label="Raza"
@@ -104,8 +80,8 @@ export default function AddPet() {
                 onChange={handleChange}
                 required
               />
-            </Grid>
-            <Grid item xs={12}>
+            </Grid2>
+            <Grid2 size={{ xs: 12 }}>
               <TextField
                 fullWidth
                 label="Edad"
@@ -114,8 +90,8 @@ export default function AddPet() {
                 onChange={handleChange}
                 required
               />
-            </Grid>
-            <Grid item xs={12}>
+            </Grid2>
+            <Grid2 size={{ xs: 12 }}>
               <TextField
                 fullWidth
                 label="Peso"
@@ -124,8 +100,8 @@ export default function AddPet() {
                 onChange={handleChange}
                 required
               />
-            </Grid>
-            <Grid item xs={12}>
+            </Grid2>
+            <Grid2 size={{ xs: 12 }}>
               <TextField
                 fullWidth
                 label="Color/Marcas"
@@ -134,8 +110,8 @@ export default function AddPet() {
                 onChange={handleChange}
                 required
               />
-            </Grid>
-            <Grid item xs={12}>
+            </Grid2>
+            <Grid2 size={{ xs: 12 }}>
               <TextField
                 fullWidth
                 label="Nombre del Dueño"
@@ -144,8 +120,8 @@ export default function AddPet() {
                 onChange={handleChange}
                 required
               />
-            </Grid>
-            <Grid item xs={4}>
+            </Grid2>
+            <Grid2 size={{ xs: 4 }}>
               <TextField
                 fullWidth
                 label="Código País"
@@ -154,8 +130,8 @@ export default function AddPet() {
                 onChange={handleChange}
                 required
               />
-            </Grid>
-            <Grid item xs={8}>
+            </Grid2>
+            <Grid2 size={{ xs: 8 }}>
               <TextField
                 fullWidth
                 label="Número de Teléfono"
@@ -164,8 +140,8 @@ export default function AddPet() {
                 onChange={handleChange}
                 required
               />
-            </Grid>
-            <Grid item xs={12}>
+            </Grid2>
+            <Grid2 size={{ xs: 12 }}>
               <Button
                 type="submit"
                 variant="contained"
@@ -173,10 +149,10 @@ export default function AddPet() {
                 fullWidth
                 size="large"
               >
-                Guardar Mascota
+                {t("admin.pets.add.save")}
               </Button>
-            </Grid>
-          </Grid>
+            </Grid2>
+          </Grid2>
         </form>
       </Box>
     </Container>

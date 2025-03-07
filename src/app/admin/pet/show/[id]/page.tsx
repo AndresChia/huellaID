@@ -10,12 +10,15 @@ import {
   Button,
   Container,
   Grid2,
+  Link,
   Paper,
   Typography,
 } from "@mui/material";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Loading from "./loading";
+import { QRCodeSVG } from "qrcode.react";
+
 export default function ShowPet({ params }: any) {
   const router = useRouter();
   const t = useTranslations();
@@ -56,18 +59,74 @@ export default function ShowPet({ params }: any) {
           {t("admin.pets.details.title")}
         </Typography>
         <Paper sx={{ p: 3 }}>
-          <Grid2 container spacing={3} size={{ xs: 12, sm: 6 }}>
-            {pet.photo && (
-              <Grid2 size={{ xs: 12, sm: 12 }}>
-                <Image
-                  width={150}
-                  height={150}
-                  src={pet.photo}
-                  alt={pet.petName}
-                  className="rounded-lg"
-                />
+          <Grid2 container spacing={3}>
+            <Grid2
+              container
+              spacing={3}
+              sx={{ mb: 3, width: "100%" }}
+              component="div"
+            >
+              {pet.photo && (
+                <Grid2
+                  container
+                  size={{ xs: 12, md: 6 }}
+                  component="div"
+                  sx={{
+                    display: "flex",
+                    justifyContent: { xs: "center", md: "flex-start" },
+                    alignItems: "center",
+                  }}
+                >
+                  <Image
+                    width={200}
+                    height={200}
+                    src={pet.photo}
+                    alt={pet.petName}
+                    className="rounded-lg"
+                    style={{ objectFit: "cover" }}
+                  />
+                </Grid2>
+              )}
+              <Grid2
+                container
+                size={{ xs: 12, md: 6 }}
+                component="div"
+                sx={{
+                  display: "flex",
+                  justifyContent: { xs: "center", md: "flex-end" },
+                  alignItems: "center",
+                }}
+              >
+                <Box
+                  sx={{
+                    textAlign: "center",
+                    justifyContent: "center",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <QRCodeSVG
+                    value={`https://huella-id.vercel.app/pet/${unwrappedParams.id}`}
+                    size={200}
+                    level="H"
+                    imageSettings={{
+                      src: "/icon.png",
+                      height: 50,
+                      width: 60,
+                      excavate: true,
+                    }}
+                  />
+                  <Link
+                    href={`https://huella-id.vercel.app/pet/${unwrappedParams.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {`https://huella-id.vercel.app/pet/${unwrappedParams.id}`}
+                  </Link>
+                </Box>
               </Grid2>
-            )}
+            </Grid2>
             <Grid2 size={{ xs: 12, sm: 6 }}>
               <Typography variant="subtitle1" color="text.secondary">
                 {t("common.petName")}

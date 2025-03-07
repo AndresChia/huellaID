@@ -3,6 +3,7 @@ import { Box, Container, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
 
 import PetsTable from "./components/PetsTable";
+import Link from "next/link";
 
 export default function AdminDashboard() {
   const t = useTranslations();
@@ -18,6 +19,16 @@ export default function AdminDashboard() {
             <Typography className="text-primary" sx={{ mb: 4 }}>
               {t("admin.dashboard.description")}
             </Typography>
+
+            <Box className="flex justify-end">
+              <Link
+                href="/admin/pet/add"
+                className="bg-primary text-white px-4 py-2 rounded-md"
+              >
+                {t("admin.dashboard.addPet")}
+              </Link>
+            </Box>
+
             <PetsTable />
           </Box>
         </Box>
