@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
-  const { phone, message, coordinates } = await request.json();
+  const { phone, message } = await request.json();
 
   try {
     const response = await fetch(
@@ -24,6 +24,7 @@ export async function POST(request: Request) {
     const data = await response.json();
     return NextResponse.json(data);
   } catch (error) {
+    console.error(error);
     return NextResponse.json(
       { error: "Error sending message" },
       { status: 500 }
