@@ -39,6 +39,11 @@ export default function About() {
       description: t("values.items.security.description"),
       icon: "🔒",
     },
+    {
+      title: t("values.items.transparency.title"),
+      description: t("values.items.transparency.description"),
+      icon: "🌟",
+    },
   ];
 
   return (

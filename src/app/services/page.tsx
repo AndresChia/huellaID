@@ -12,22 +12,22 @@ export default function ServicesPage() {
     {
       title: t("items.nfc.title"),
       description: t("items.nfc.description"),
-      icon: <NfcIcon className="w-full h-full text-primary" />,
+      icon: <NfcIcon fontSize="large" className="text-primary" />,
     },
     {
       title: t("items.qr.title"),
       description: t("items.qr.description"),
-      icon: <QrCodeIcon className="w-full h-full text-primary" />,
+      icon: <QrCodeIcon fontSize="large" className="text-primary" />,
     },
     {
       title: t("items.profile.title"),
       description: t("items.profile.description"),
-      icon: <CloudSyncIcon className="w-full h-full text-primary" />,
+      icon: <CloudSyncIcon fontSize="large" className="text-primary" />,
     },
     {
       title: t("items.support.title"),
       description: t("items.support.description"),
-      icon: <SupportAgentIcon className="w-full h-full text-primary" />,
+      icon: <SupportAgentIcon fontSize="large" className="text-primary" />,
     },
   ];
 
@@ -63,7 +63,7 @@ export default function ServicesPage() {
               className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
             >
               <div className="flex justify-center mb-4">
-                <div className="relative w-16 h-16">{service.icon}</div>
+                <div className="relative text-4xl">{service.icon}</div>
               </div>
               <h3 className="text-xl font-semibold text-primary mb-2 text-center">
                 {service.title}

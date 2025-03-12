@@ -346,6 +346,10 @@
         "security": {
           "title": "Conexión y seguridad",
           "description": "Buscamos fortalecer el vínculo entre las mascotas y sus familias mediante un sistema de identificación confiable y moderno."
+        },
+        "transparency": {
+          "title": "Transparencia",
+          "description": "Mantenemos una comunicación clara y honesta con nuestros usuarios sobre todos nuestros procesos y servicios."
         }
       }
     },
