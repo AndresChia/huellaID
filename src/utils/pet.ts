@@ -5,6 +5,7 @@ export const defaultPet: RegisterPetForm = {
   petName: "",
   species: "",
   breed: "",
+  birthDate: "",
   age: "",
   weight: "",
   colorMarkings: "",

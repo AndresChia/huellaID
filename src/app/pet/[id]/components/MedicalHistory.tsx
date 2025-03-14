@@ -1,5 +1,7 @@
 "use client";
 import { useTranslations } from "next-intl";
+import { Vaccination } from "@/interfaces/form";
+import dayjs from "dayjs";
 
 type VeterinaryContact = {
   name: string;
@@ -11,7 +13,7 @@ type MedicalHistoryProps = {
   allergies: string[];
   medications: string[];
   conditions: string[];
-  vaccinations: string[];
+  vaccinations: Vaccination[];
   veterinaryContact: VeterinaryContact | undefined;
   requireVeterinaryInfo: boolean;
   showAllergies: boolean;
@@ -53,11 +55,17 @@ export default function MedicalHistory({
             </div>
             <div className="space-y-4">
               {vaccinations.map((vaccination) => (
-                <div
-                  key={vaccination}
-                  className="bg-gray-50 rounded-lg p-4 transition-all hover:bg-gray-100"
-                >
-                  <p className="font-medium text-black">{vaccination}</p>
+                <div key={vaccination.name}>
+                  <div className="bg-gray-50 rounded-lg p-4 transition-all hover:bg-gray-100">
+                    <p className="font-medium text-black capitalize">
+                      {vaccination.name}
+                    </p>
+                    <p className="text-black/60 text-sm mb-4">
+                      {dayjs(vaccination.lastApplied as string).format(
+                        "DD/MM/YYYY"
+                      )}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -80,7 +88,9 @@ export default function MedicalHistory({
                   key={medication}
                   className="bg-gray-50 rounded-lg p-4 transition-all hover:bg-gray-100"
                 >
-                  <p className="font-medium text-black">{medication}</p>
+                  <p className="font-medium text-black capitalize">
+                    {medication}
+                  </p>
                 </div>
               ))}
             </div>
@@ -103,7 +113,7 @@ export default function MedicalHistory({
                   key={allergy}
                   className="bg-gray-50 rounded-lg p-4 transition-all hover:bg-gray-100"
                 >
-                  <p className="font-medium text-black">{allergy}</p>
+                  <p className="font-medium text-black capitalize">{allergy}</p>
                 </div>
               ))}
             </div>
@@ -126,7 +136,9 @@ export default function MedicalHistory({
                   key={condition}
                   className="bg-gray-50 rounded-lg p-4 transition-all hover:bg-gray-100"
                 >
-                  <p className="font-medium text-black">{condition}</p>
+                  <p className="font-medium text-black capitalize">
+                    {condition}
+                  </p>
                 </div>
               ))}
             </div>

@@ -1,12 +1,15 @@
+import { Dayjs } from "dayjs";
+
 export interface RegisterPetForm {
   id: string;
   petName: string;
   species: string;
   breed: string;
-  age: string;
-  weight: string;
+  birthDate: string;
+  age: number;
+  weight: number;
   colorMarkings: string;
-  photo: string;
+  photo: File | string;
   requireMedicalInfo: boolean;
   showAllergies: boolean;
   allergies: string[];
@@ -15,7 +18,7 @@ export interface RegisterPetForm {
   showConditions: boolean;
   conditions: string[];
   showVaccinations: boolean;
-  vaccinations: string[];
+  vaccinations: Vaccination[];
   requireVeterinaryInfo: boolean;
   veterinaryName: string;
   veterinaryPhone: string;
@@ -29,4 +32,9 @@ export interface RegisterPetForm {
   tagType: string;
   activate: boolean;
   disabled: boolean;
+}
+
+export interface Vaccination {
+  name: string;
+  lastApplied: Dayjs | null | string;
 }

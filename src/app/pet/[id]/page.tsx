@@ -16,7 +16,7 @@ export default async function PetPage({ params }: any) {
     const headerProps = {
       name: pet.petName,
       species: pet.species,
-      photo: pet.photo,
+      photo: pet.photo as string,
     };
 
     const infoProps = {

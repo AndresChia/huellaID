@@ -7,6 +7,7 @@ import { RegisterPetForm } from "@/interfaces/form";
 import { FirestorePetRepository } from "@/infrastructure/repositories/FirestorePetRepository";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
+import { uploadImage } from "@/services/cloudinary";
 import {
   PetData,
   ContactInfo,
@@ -26,6 +27,7 @@ export default function PetRegister() {
     petName: Yup.string().required(v("petName")),
     species: Yup.string().required(v("species")),
     breed: Yup.string().required(v("breed")),
+    birthDate: Yup.string().required(v("birthDate")),
     age: Yup.number().required(v("age.required")).positive(v("age.positive")),
     weight: Yup.number()
       .required(v("weight.required"))
@@ -84,7 +86,23 @@ export default function PetRegister() {
   ) => {
     try {
       const petRepository = new FirestorePetRepository();
-      const petId = await petRepository.savePet(values);
+      let photoUrl = "";
+
+      if (values.photo instanceof File) {
+        photoUrl = await uploadImage(values.photo);
+      }
+
+      const petData = {
+        ...values,
+        photo: photoUrl,
+        vaccinations: values.vaccinations.map((vaccination) => ({
+          name: vaccination.name,
+          lastApplied: vaccination.lastApplied?.toString() || "",
+        })),
+      };
+
+      const petId = await petRepository.savePet(petData as RegisterPetForm);
+      console.log(petId);
       setSubmitting(false);
       resetForm();
       router.push(`/pet/${petId}`);

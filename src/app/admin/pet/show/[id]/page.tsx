@@ -80,7 +80,7 @@ export default function ShowPet({ params }: any) {
                   <Image
                     width={200}
                     height={200}
-                    src={pet.photo}
+                    src={pet.photo as string}
                     alt={pet.petName}
                     className="rounded-lg"
                     style={{ objectFit: "cover" }}
@@ -107,7 +107,7 @@ export default function ShowPet({ params }: any) {
                   }}
                 >
                   <QRCodeSVG
-                    value={`https://huella-id.vercel.app/pet/${unwrappedParams.id}`}
+                    value={`${process.env.NEXT_PUBLIC_HUENDA_ID_URL}/pet/${unwrappedParams.id}`}
                     size={200}
                     level="H"
                     imageSettings={{
@@ -118,67 +118,187 @@ export default function ShowPet({ params }: any) {
                     }}
                   />
                   <Link
-                    href={`https://huella-id.vercel.app/pet/${unwrappedParams.id}`}
+                    href={`${process.env.NEXT_PUBLIC_HUENDA_ID_URL}/pet/${unwrappedParams.id}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {`https://huella-id.vercel.app/pet/${unwrappedParams.id}`}
+                    {`${process.env.NEXT_PUBLIC_HUENDA_ID_URL}/pet/${unwrappedParams.id}`}
                   </Link>
                 </Box>
               </Grid2>
             </Grid2>
             <Grid2 size={{ xs: 12, sm: 6 }}>
-              <Typography variant="subtitle1" color="text.secondary">
-                {t("common.petName")}
+              <Typography variant="h6" color="primary" gutterBottom>
+                {t("common.basicInfo")}
               </Typography>
-              <Typography variant="body1">{pet.petName}</Typography>
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                <Box>
+                  <Typography variant="subtitle1" color="text.secondary">
+                    {t("common.petName")}
+                  </Typography>
+                  <Typography variant="body1">{pet.petName}</Typography>
+                </Box>
+                <Box>
+                  <Typography variant="subtitle1" color="text.secondary">
+                    {t("common.species")}
+                  </Typography>
+                  <Typography variant="body1">{ts(pet.species)}</Typography>
+                </Box>
+                <Box>
+                  <Typography variant="subtitle1" color="text.secondary">
+                    {t("common.breed")}
+                  </Typography>
+                  <Typography variant="body1">
+                    {pet.species === "dog" ? bd(pet.breed) : bc(pet.breed)}
+                  </Typography>
+                </Box>
+                <Box>
+                  <Typography variant="subtitle1" color="text.secondary">
+                    {t("common.age")}
+                  </Typography>
+                  <Typography variant="body1">{pet.age}</Typography>
+                </Box>
+                <Box>
+                  <Typography variant="subtitle1" color="text.secondary">
+                    {t("common.weight")}
+                  </Typography>
+                  <Typography variant="body1">{pet.weight}</Typography>
+                </Box>
+                <Box>
+                  <Typography variant="subtitle1" color="text.secondary">
+                    {t("common.colorMarkings")}
+                  </Typography>
+                  <Typography variant="body1">{pet.colorMarkings}</Typography>
+                </Box>
+              </Box>
             </Grid2>
             <Grid2 size={{ xs: 12, sm: 6 }}>
-              <Typography variant="subtitle1" color="text.secondary">
-                {t("common.species")}
+              <Typography variant="h6" color="primary" gutterBottom>
+                {t("common.ownerInfo")}
               </Typography>
-              <Typography variant="body1">{ts(pet.species)}</Typography>
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                <Box>
+                  <Typography variant="subtitle1" color="text.secondary">
+                    {t("common.ownerName")}
+                  </Typography>
+                  <Typography variant="body1">{pet.ownerName}</Typography>
+                </Box>
+                <Box>
+                  <Typography variant="subtitle1" color="text.secondary">
+                    {t("common.phone")}
+                  </Typography>
+                  <Typography variant="body1">
+                    {`${pet.countryCode} ${pet.phoneNumber}`}
+                  </Typography>
+                </Box>
+                <Box>
+                  <Typography variant="subtitle1" color="text.secondary">
+                    {t("common.email")}
+                  </Typography>
+                  <Typography variant="body1">{pet.email}</Typography>
+                </Box>
+                <Box>
+                  <Typography variant="subtitle1" color="text.secondary">
+                    {t("common.address")}
+                  </Typography>
+                  <Typography variant="body1">{pet.address}</Typography>
+                </Box>
+              </Box>
             </Grid2>
-            <Grid2 size={{ xs: 12, sm: 6 }}>
-              <Typography variant="subtitle1" color="text.secondary">
-                {t("common.breed")}
-              </Typography>
-              <Typography variant="body1">
-                {pet.species === "dog" ? bd(pet.breed) : bc(pet.breed)}
-              </Typography>
-            </Grid2>
-            <Grid2 size={{ xs: 12, sm: 6 }}>
-              <Typography variant="subtitle1" color="text.secondary">
-                {t("common.age")}
-              </Typography>
-              <Typography variant="body1">{pet.age}</Typography>
-            </Grid2>
-            <Grid2 size={{ xs: 12, sm: 6 }}>
-              <Typography variant="subtitle1" color="text.secondary">
-                {t("common.weight")}
-              </Typography>
-              <Typography variant="body1">{pet.weight}</Typography>
-            </Grid2>
-            <Grid2 size={{ xs: 12, sm: 6 }}>
-              <Typography variant="subtitle1" color="text.secondary">
-                {t("common.colorMarkings")}
-              </Typography>
-              <Typography variant="body1">{pet.colorMarkings}</Typography>
-            </Grid2>
-            <Grid2 size={{ xs: 12, sm: 6 }}>
-              <Typography variant="subtitle1" color="text.secondary">
-                {t("common.ownerName")}
-              </Typography>
-              <Typography variant="body1">{pet.ownerName}</Typography>
-            </Grid2>
-            <Grid2 size={{ xs: 12, sm: 6 }}>
-              <Typography variant="subtitle1" color="text.secondary">
-                {t("common.phone")}
-              </Typography>
-              <Typography variant="body1">
-                {`${pet.countryCode} ${pet.phoneNumber}`}
-              </Typography>
-            </Grid2>
+            {pet.requireMedicalInfo && (
+              <Grid2 size={12}>
+                <Typography
+                  variant="h6"
+                  color="primary"
+                  gutterBottom
+                  sx={{ mt: 3 }}
+                >
+                  {t("common.medicalInfo")}
+                </Typography>
+                <Grid2 container spacing={3}>
+                  {pet.showAllergies && pet.allergies.length > 0 && (
+                    <Grid2 size={{ xs: 12, sm: 6 }}>
+                      <Typography variant="subtitle1" color="text.secondary">
+                        {t("common.allergies")}
+                      </Typography>
+                      <Typography variant="body1">
+                        {pet.allergies.join(", ")}
+                      </Typography>
+                    </Grid2>
+                  )}
+                  {pet.showMedications && pet.medications.length > 0 && (
+                    <Grid2 size={{ xs: 12, sm: 6 }}>
+                      <Typography variant="subtitle1" color="text.secondary">
+                        {t("common.medications")}
+                      </Typography>
+                      <Typography variant="body1">
+                        {pet.medications.join(", ")}
+                      </Typography>
+                    </Grid2>
+                  )}
+                  {pet.showConditions && pet.conditions.length > 0 && (
+                    <Grid2 size={{ xs: 12, sm: 6 }}>
+                      <Typography variant="subtitle1" color="text.secondary">
+                        {t("common.conditions")}
+                      </Typography>
+                      <Typography variant="body1">
+                        {pet.conditions.join(", ")}
+                      </Typography>
+                    </Grid2>
+                  )}
+                  {pet.showVaccinations && pet.vaccinations.length > 0 && (
+                    <Grid2 size={12}>
+                      <Typography variant="subtitle1" color="text.secondary">
+                        {t("common.vaccinations")}
+                      </Typography>
+                      {pet.vaccinations.map((vaccination, index) => (
+                        <Typography key={index} variant="body1">
+                          {`${vaccination.name}: ${vaccination.lastApplied}`}
+                        </Typography>
+                      ))}
+                    </Grid2>
+                  )}
+                </Grid2>
+              </Grid2>
+            )}
+            {pet.requireVeterinaryInfo && (
+              <Grid2 size={12}>
+                <Typography
+                  variant="h6"
+                  color="primary"
+                  gutterBottom
+                  sx={{ mt: 3 }}
+                >
+                  {t("common.veterinaryInfo")}
+                </Typography>
+                <Grid2 container spacing={3}>
+                  <Grid2 size={{ xs: 12, sm: 6 }}>
+                    <Typography variant="subtitle1" color="text.secondary">
+                      {t("common.veterinaryName")}
+                    </Typography>
+                    <Typography variant="body1">
+                      {pet.veterinaryName}
+                    </Typography>
+                  </Grid2>
+                  <Grid2 size={{ xs: 12, sm: 6 }}>
+                    <Typography variant="subtitle1" color="text.secondary">
+                      {t("common.veterinaryPhone")}
+                    </Typography>
+                    <Typography variant="body1">
+                      {pet.veterinaryPhone}
+                    </Typography>
+                  </Grid2>
+                  <Grid2 size={12}>
+                    <Typography variant="subtitle1" color="text.secondary">
+                      {t("common.veterinaryAddress")}
+                    </Typography>
+                    <Typography variant="body1">
+                      {pet.veterinaryAddress}
+                    </Typography>
+                  </Grid2>
+                </Grid2>
+              </Grid2>
+            )}
           </Grid2>
         </Paper>
         <Box sx={{ mt: 3, display: "flex", gap: 2 }}>

@@ -8,9 +8,12 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import type { Dayjs } from "dayjs";
 import { Field, FieldProps } from "formik";
 import { inputStyles } from "../styles";
 import { useTranslations } from "next-intl";
+import { Vaccination } from "@/interfaces/form";
 
 export const MedicalInfo = () => {
   const c = useTranslations("common");
@@ -285,16 +288,19 @@ export const MedicalInfo = () => {
                         {({ field, form }: FieldProps) => (
                           <FormControl fullWidth>
                             <Stack spacing={2}>
-                              {(field.value as string[]).map(
-                                (vaccination: string, index: number) => (
+                              {(field.value as Vaccination[]).map(
+                                (vaccination: Vaccination, index: number) => (
                                   <Box key={index} display="flex" gap={2}>
                                     <TextField
-                                      value={vaccination}
+                                      value={vaccination.name}
                                       onChange={(e) => {
                                         const newVaccinations = [
-                                          ...(field.value as string[]),
+                                          ...(field.value as Vaccination[]),
                                         ];
-                                        newVaccinations[index] = e.target.value;
+                                        newVaccinations[index] = {
+                                          ...newVaccinations[index],
+                                          name: e.target.value,
+                                        };
                                         form.setFieldValue(
                                           "vaccinations",
                                           newVaccinations
@@ -306,12 +312,36 @@ export const MedicalInfo = () => {
                                       )}
                                       sx={inputStyles}
                                     />
+                                    <DatePicker
+                                      value={
+                                        vaccination.lastApplied as Dayjs | null
+                                      }
+                                      onChange={(newValue: Dayjs | null) => {
+                                        const newVaccinations = [
+                                          ...(field.value as Vaccination[]),
+                                        ];
+                                        newVaccinations[index] = {
+                                          ...newVaccinations[index],
+                                          lastApplied: newValue,
+                                        };
+                                        form.setFieldValue(
+                                          "vaccinations",
+                                          newVaccinations
+                                        );
+                                      }}
+                                      slotProps={{
+                                        textField: {
+                                          fullWidth: true,
+                                          sx: inputStyles,
+                                        },
+                                      }}
+                                    />
                                     <Button
                                       variant="outlined"
                                       color="error"
                                       onClick={() => {
                                         const newVaccinations = (
-                                          field.value as string[]
+                                          field.value as Vaccination[]
                                         ).filter((_, i) => i !== index);
                                         form.setFieldValue(
                                           "vaccinations",
@@ -328,8 +358,8 @@ export const MedicalInfo = () => {
                                 variant="outlined"
                                 onClick={() => {
                                   form.setFieldValue("vaccinations", [
-                                    ...(field.value as string[]),
-                                    "",
+                                    ...(field.value as Vaccination[]),
+                                    { name: "", lastApplied: null },
                                   ]);
                                 }}
                               >

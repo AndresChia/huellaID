@@ -8,6 +8,7 @@ import {
   TextField,
   Typography,
   Stack,
+  Button,
 } from "@mui/material";
 // Button,
 import { Field, FieldProps } from "formik";
@@ -15,7 +16,9 @@ import { RegisterPetForm } from "@/interfaces/form";
 import { BREEDS, SPECIES } from "@/constants/pets";
 import { inputStyles } from "../styles";
 import { useTranslations } from "next-intl";
-//import { ChangeEvent, useRef } from "react";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import dayjs from "dayjs";
+import { ChangeEvent, useRef } from "react";
 
 export const PetData = () => {
   const c = useTranslations("common");
@@ -23,7 +26,7 @@ export const PetData = () => {
   const s = useTranslations("species");
   const dogBreeds = useTranslations("breeds.dog");
   const catBreeds = useTranslations("breeds.cat");
-  //const fileInputRef = useRef<HTMLInputElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   return (
     <Box>
@@ -56,47 +59,45 @@ export const PetData = () => {
             </FormControl>
           )}
         </Field>
-        {/*
-            <Field name="photo">
-              {({
-                field: { value },
-                form: { setFieldValue, touched, errors },
-              }: FieldProps<RegisterPetForm>) => (
-                <FormControl error={!!(touched.photo && errors.photo)} fullWidth>
-                  <FormLabel>{c("photo")}</FormLabel>
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    accept="image/*"
-                    style={{ display: "none" }}
-                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                      const file = event.currentTarget.files?.[0] || null;
-                      setFieldValue("photo", file);
-                    }}
-                  />
-                  <Button
-                    variant="outlined"
-                    onClick={() => fileInputRef.current?.click()}
-                    sx={{ mt: 1 }}
-                  >
-                    {value ? p("changePhoto") : p("uploadPhoto")}
-                  </Button>
-                  {value && (
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      sx={{ mt: 1 }}
-                    >
-                      {value.name}
-                    </Typography>
-                  )}
-                  {touched.photo && errors.photo && (
-                    <FormHelperText error>{String(errors.photo)}</FormHelperText>
-                  )}
-                </FormControl>
+        <Field name="photo">
+          {({
+            field: { value },
+            form: { setFieldValue, touched, errors },
+          }: FieldProps<RegisterPetForm>) => (
+            <FormControl error={!!(touched.photo && errors.photo)} fullWidth>
+              <FormLabel>{c("photo")}</FormLabel>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                style={{ display: "none" }}
+                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                  const file = event.currentTarget.files?.[0] || null;
+                  setFieldValue("photo", file);
+                }}
+              />
+              <Button
+                variant="outlined"
+                onClick={() => fileInputRef.current?.click()}
+                sx={{ mt: 1 }}
+              >
+                {value ? p("changePhoto") : p("uploadPhoto")}
+              </Button>
+              {value instanceof File && (
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ mt: 1 }}
+                >
+                  {value.name}
+                </Typography>
               )}
-            </Field>
-            */}
+              {touched.photo && errors.photo && (
+                <FormHelperText error>{String(errors.photo)}</FormHelperText>
+              )}
+            </FormControl>
+          )}
+        </Field>
         <Field name="species">
           {({ field, form }: FieldProps<RegisterPetForm>) => (
             <FormControl
@@ -151,6 +152,29 @@ export const PetData = () => {
               </Select>
               {touched.breed && errors.breed && (
                 <FormHelperText>{String(errors.breed)}</FormHelperText>
+              )}
+            </FormControl>
+          )}
+        </Field>
+        <Field name="birthDate">
+          {({
+            field,
+            form: { touched, errors, setFieldValue },
+          }: FieldProps<RegisterPetForm>) => (
+            <FormControl
+              error={!!(touched.birthDate && errors.birthDate)}
+              fullWidth
+            >
+              <FormLabel>{c("birthDate")}</FormLabel>
+              <DatePicker
+                value={field.value ? dayjs(String(field.value)) : null}
+                onChange={(date) =>
+                  setFieldValue("birthDate", date?.toISOString() || "")
+                }
+                sx={inputStyles}
+              />
+              {touched.birthDate && errors.birthDate && (
+                <FormHelperText>{String(errors.birthDate)}</FormHelperText>
               )}
             </FormControl>
           )}

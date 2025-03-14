@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://huellaid.com
+
+# Sitemaps
+Sitemap: https://huellaid.com/sitemap.xml

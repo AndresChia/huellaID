@@ -7,8 +7,8 @@ import PetsIcon from "@mui/icons-material/Pets";
 import PaletteIcon from "@mui/icons-material/Palette";
 
 interface PetInfoProps {
-  age: string;
-  weight: string;
+  age: number;
+  weight: number;
   breed: string;
   colorMarkings: string;
   species: string;

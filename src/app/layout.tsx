@@ -8,6 +8,8 @@ import Footer from "@/components/shared/Footer/Footer";
 import MUIThemeProvider from "@/components/providers/MUIThemeProvider";
 import { AuthProvider } from "@/components/providers/AuthProvider";
 import HeaderAdmin from "@/components/shared/Header/HeaderAdmin";
+import CustomLocalizationProvider from "@/components/providers/LocalizationProvider";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -56,7 +58,7 @@ export const metadata: Metadata = {
     siteName: "HuellaID",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/icon.png",
         width: 1200,
         height: 630,
         alt: "HuellaID - Identificación Digital para Mascotas",
@@ -68,7 +70,7 @@ export const metadata: Metadata = {
     title: "HuellaID - Identificación Digital para Mascotas",
     description:
       "Sistema innovador de identificación para mascotas con tecnología NFC y QR. Acceso instantáneo a información vital de tu mascota.",
-    images: ["/twitter-image.jpg"],
+    images: ["/icon.png"],
   },
   robots: {
     index: true,
@@ -98,11 +100,12 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <MUIThemeProvider>
             <AuthProvider>
-              <Header />
-              <HeaderAdmin />
-
-              <main className="flex-grow bg-white">{children}</main>
-              <Footer />
+              <CustomLocalizationProvider>
+                <Header />
+                <HeaderAdmin />
+                <main className="flex-grow bg-white">{children}</main>
+                <Footer />
+              </CustomLocalizationProvider>
             </AuthProvider>
           </MUIThemeProvider>
         </NextIntlClientProvider>
