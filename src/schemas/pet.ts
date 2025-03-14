@@ -1,6 +1,5 @@
+import { MAX_FILE_SIZE } from "@/utils/configuration";
 import * as Yup from "yup";
-
-type FileValue = File | string | null | undefined;
 
 export const registerPetSchema = Yup.object().shape({
   petName: Yup.string().required("common:required"),
@@ -16,12 +15,12 @@ export const registerPetSchema = Yup.object().shape({
     .min(0, "common:minValue")
     .max(100, "common:maxValue"),
   colorMarkings: Yup.string().required("common:required"),
-  photo: Yup.mixed()
-    .test("fileSize", "common:maxFileSize", (value: FileValue) => {
+  photo: Yup.mixed<File>()
+    .test("fileSize", "common:maxFileSize", function (value) {
       if (!value || typeof value === "string") return true;
-      return value.size <= 5000000; // 5MB
+      return value.size <= MAX_FILE_SIZE;
     })
-    .test("fileType", "common:invalidFileType", (value: FileValue) => {
+    .test("fileType", "common:invalidFileType", function (value) {
       if (!value || typeof value === "string") return true;
       return ["image/jpeg", "image/png", "image/jpg"].includes(value.type);
     }),

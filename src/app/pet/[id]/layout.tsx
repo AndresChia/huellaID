@@ -14,13 +14,13 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       openGraph: {
         title: `${pet.petName} - HuellaID`,
         description: `Conoce a ${pet.petName} en HuellaID, la plataforma para mascotas`,
-        images: pet.photo ? [pet.photo] : [],
+        images: (pet.photo as string) ? [pet.photo as string] : [],
       },
       twitter: {
         card: "summary_large_image",
         title: `${pet.petName} - HuellaID`,
         description: `Conoce a ${pet.petName} en HuellaID, la plataforma para mascotas`,
-        images: pet.photo ? [pet.photo] : [],
+        images: (pet.photo as string) ? [pet.photo as string] : [],
       },
     };
   } catch {
